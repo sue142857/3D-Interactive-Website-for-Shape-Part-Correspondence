@@ -36,10 +36,6 @@ include "sql_library/db.php";
 <button type="button" onclick="loadAllShapes(shapesLoaded)">Load Shape</button>
 
 <script>
-    loadTable();
-</script>
-
-<script>
     loadLabelTask();
 </script>
 
