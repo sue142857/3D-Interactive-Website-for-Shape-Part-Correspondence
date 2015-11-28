@@ -166,18 +166,6 @@ var loadTable = function(){
         }
     });
 
-    $.ajax({
-        url: 'sql_library/getLabelmap.php',
-        data: "",
-        dataType: 'json',
-        success:function(data4) {
-            labelmapTable = data4;
-        },
-        error: function(err){
-            console.log(err);
-        }
-    });
-
 }
 var actionToLabelBar = function(labelId){
     $("#labelBar").click(function(event){
@@ -250,7 +238,17 @@ var loadLabel = function(classId) {
     actionToLabelBar(labelId);
 
     // load initial labels
-    addInitialLabel(classId,labelId,labelmapTable);
+    $.ajax({
+        url: 'sql_library/getLabelmap.php',
+        data: "",
+        dataType: 'json',
+        success:function(labelmapTable) {
+            addInitialLabel(classId,labelId,labelmapTable);
+        },
+        error: function(err){
+            console.log(err);
+        }
+    });
 }
 var loadLabelTask = function(){
     // Select a shape to label
@@ -290,7 +288,7 @@ var loadLabelTask = function(){
                         var classId = Number(shapeTable[loc][2]);
                         labelTask_loc = i + 1;
                         loadShapeGraph(shapeName,0);
-                        //loadLabel(classId);
+                        loadLabel(classId);
                         break;
                     }
                     // next task is before labelTask_loc
