@@ -1,0 +1,1164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<document>
+<node>
+	<id>BarLeft</id>
+	<type>CURVE</type>
+	<mesh>meshes/BarLeft.obj</mesh>
+
+	<controls>
+		<c>36</c>
+	</controls>
+
+	<point>0.305641 0.188556 0.734669</point>
+	<point>0.305578 0.18867 0.744455</point>
+	<point>0.305508 0.188771 0.75424</point>
+	<point>0.305407 0.188855 0.764024</point>
+	<point>0.305285 0.188931 0.773809</point>
+	<point>0.305161 0.188994 0.783594</point>
+	<point>0.305043 0.18905 0.793378</point>
+	<point>0.304969 0.189066 0.803164</point>
+	<point>0.30497 0.189033 0.81295</point>
+	<point>0.305022 0.188988 0.822736</point>
+	<point>0.30509 0.188955 0.832521</point>
+	<point>0.305145 0.188947 0.842307</point>
+	<point>0.305169 0.188955 0.852093</point>
+	<point>0.305132 0.18898 0.861878</point>
+	<point>0.305052 0.188992 0.871664</point>
+	<point>0.304974 0.188968 0.881449</point>
+	<point>0.304933 0.188858 0.891234</point>
+	<point>0.304945 0.188656 0.901018</point>
+	<point>0.304993 0.188393 0.9108</point>
+	<point>0.305068 0.188088 0.920585</point>
+	<point>0.30516 0.187758 0.930362</point>
+	<point>0.305201 0.1875 0.940139</point>
+	<point>0.305213 0.187314 0.949925</point>
+	<point>0.305224 0.18717 0.959711</point>
+	<point>0.305236 0.187094 0.969497</point>
+	<point>0.305248 0.187023 0.979283</point>
+	<point>0.305256 0.187027 0.989069</point>
+	<point>0.305253 0.187101 0.998855</point>
+	<point>0.305244 0.187207 1.00864</point>
+	<point>0.305231 0.187329 1.01843</point>
+	<point>0.305216 0.187467 1.02821</point>
+	<point>0.305197 0.18762 1.03799</point>
+	<point>0.30518 0.187793 1.04778</point>
+	<point>0.305169 0.187988 1.05756</point>
+	<point>0.305166 0.188188 1.06735</point>
+	<point>0.305164 0.188388 1.07713</point>
+
+	<weights>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 </weights>
+
+	<meta><key>label</key><value>back-bar-left</value></meta>
+
+	<meta><key>parentLabel</key><value>back</value></meta>
+</node>
+
+<node>
+	<id>BarRight</id>
+	<type>CURVE</type>
+	<mesh>meshes/BarRight.obj</mesh>
+
+	<controls>
+		<c>37</c>
+	</controls>
+
+	<point>-0.302496 0.188427 0.72616</point>
+	<point>-0.302411 0.188495 0.735937</point>
+	<point>-0.302327 0.188563 0.745714</point>
+	<point>-0.302285 0.188579 0.755491</point>
+	<point>-0.302314 0.188522 0.765269</point>
+	<point>-0.302356 0.188466 0.775046</point>
+	<point>-0.302394 0.188419 0.784824</point>
+	<point>-0.302423 0.188381 0.794601</point>
+	<point>-0.30242 0.188378 0.804378</point>
+	<point>-0.302379 0.18842 0.814156</point>
+	<point>-0.302326 0.188525 0.823933</point>
+	<point>-0.302286 0.188678 0.833709</point>
+	<point>-0.302266 0.188829 0.843485</point>
+	<point>-0.30241 0.18894 0.853261</point>
+	<point>-0.302646 0.189013 0.863035</point>
+	<point>-0.302853 0.189029 0.872811</point>
+	<point>-0.30297 0.188976 0.882587</point>
+	<point>-0.302968 0.188844 0.892364</point>
+	<point>-0.302899 0.188661 0.90214</point>
+	<point>-0.302786 0.188436 0.911914</point>
+	<point>-0.302645 0.188176 0.921689</point>
+	<point>-0.302495 0.1879 0.931456</point>
+	<point>-0.302377 0.187643 0.941233</point>
+	<point>-0.302424 0.187536 0.95101</point>
+	<point>-0.302478 0.187496 0.960787</point>
+	<point>-0.302519 0.187527 0.970564</point>
+	<point>-0.302558 0.187564 0.980341</point>
+	<point>-0.302569 0.187661 0.990118</point>
+	<point>-0.302572 0.187771 0.999895</point>
+	<point>-0.302564 0.187894 1.00967</point>
+	<point>-0.302554 0.188016 1.01945</point>
+	<point>-0.302541 0.188136 1.02923</point>
+	<point>-0.302522 0.188246 1.039</point>
+	<point>-0.302501 0.188354 1.04878</point>
+	<point>-0.302478 0.18846 1.05856</point>
+	<point>-0.302454 0.188583 1.06833</point>
+	<point>-0.302432 0.18871 1.07811</point>
+
+	<weights>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 </weights>
+
+	<meta><key>label</key><value>back-bar-right</value></meta>
+
+	<meta><key>parentLabel</key><value>back</value></meta>
+</node>
+
+<node>
+	<id>ArmRestLeft</id>
+	<type>CURVE</type>
+	<mesh>meshes/ArmRestLeft.obj</mesh>
+
+	<controls>
+		<c>32</c>
+	</controls>
+
+	<point>0.304097 0.147943 0.882183</point>
+	<point>0.303756 0.136372 0.88211</point>
+	<point>0.303419 0.124802 0.882049</point>
+	<point>0.303082 0.113231 0.881994</point>
+	<point>0.302744 0.101661 0.881941</point>
+	<point>0.302403 0.0900906 0.881892</point>
+	<point>0.302059 0.0785203 0.881849</point>
+	<point>0.301709 0.0669502 0.881814</point>
+	<point>0.301349 0.0553804 0.881784</point>
+	<point>0.300988 0.0438106 0.881755</point>
+	<point>0.300622 0.032241 0.881731</point>
+	<point>0.300246 0.0206716 0.881718</point>
+	<point>0.299878 0.00910197 0.881717</point>
+	<point>0.299523 -0.00246802 0.881721</point>
+	<point>0.29918 -0.0140384 0.881728</point>
+	<point>0.298852 -0.0256092 0.881741</point>
+	<point>0.298607 -0.037182 0.881763</point>
+	<point>0.298444 -0.0487562 0.881785</point>
+	<point>0.298362 -0.0603313 0.881804</point>
+	<point>0.298375 -0.0719066 0.881817</point>
+	<point>0.298477 -0.0834816 0.881824</point>
+	<point>0.298622 -0.0950563 0.881826</point>
+	<point>0.29882 -0.10663 0.881823</point>
+	<point>0.29907 -0.118203 0.881814</point>
+	<point>0.299371 -0.129774 0.881798</point>
+	<point>0.29971 -0.141344 0.881777</point>
+	<point>0.300075 -0.152914 0.881751</point>
+	<point>0.300457 -0.164483 0.88172</point>
+	<point>0.300852 -0.176052 0.881685</point>
+	<point>0.301253 -0.18762 0.881642</point>
+	<point>0.301656 -0.199189 0.881584</point>
+	<point>0.30206 -0.210757 0.881527</point>
+
+	<weights>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 </weights>
+
+	<meta><key>label</key><value>armrest-left</value></meta>
+
+	<meta><key>parentLabel</key><value>armrest</value></meta>
+</node>
+
+<node>
+	<id>ArmRestRight</id>
+	<type>CURVE</type>
+	<mesh>meshes/ArmRestRight.obj</mesh>
+
+	<controls>
+		<c>33</c>
+	</controls>
+
+	<point>-0.305641 0.166999 0.882521</point>
+	<point>-0.305196 0.155435 0.882308</point>
+	<point>-0.304748 0.143872 0.882097</point>
+	<point>-0.304286 0.132309 0.881891</point>
+	<point>-0.30382 0.120746 0.881691</point>
+	<point>-0.30335 0.109184 0.881502</point>
+	<point>-0.302877 0.0976209 0.881329</point>
+	<point>-0.302408 0.0860572 0.881172</point>
+	<point>-0.301949 0.0744932 0.881035</point>
+	<point>-0.301505 0.0629284 0.880921</point>
+	<point>-0.301083 0.0513624 0.880837</point>
+	<point>-0.300688 0.0397954 0.880782</point>
+	<point>-0.300321 0.0282274 0.880755</point>
+	<point>-0.299983 0.0166583 0.880757</point>
+	<point>-0.299689 0.00508825 0.880795</point>
+	<point>-0.299433 -0.00648265 0.880864</point>
+	<point>-0.299215 -0.0180542 0.880957</point>
+	<point>-0.299032 -0.0296261 0.881064</point>
+	<point>-0.298888 -0.0411986 0.881182</point>
+	<point>-0.298776 -0.0527713 0.881299</point>
+	<point>-0.298695 -0.0643444 0.881409</point>
+	<point>-0.298655 -0.0759179 0.881506</point>
+	<point>-0.298651 -0.0874915 0.881588</point>
+	<point>-0.298697 -0.0990656 0.881652</point>
+	<point>-0.298785 -0.110638 0.8817</point>
+	<point>-0.298922 -0.122212 0.881734</point>
+	<point>-0.299131 -0.133784 0.881748</point>
+	<point>-0.299441 -0.145354 0.881738</point>
+	<point>-0.299764 -0.156923 0.881724</point>
+	<point>-0.300117 -0.168492 0.881706</point>
+	<point>-0.300552 -0.180057 0.881676</point>
+	<point>-0.301144 -0.191615 0.881629</point>
+	<point>-0.301815 -0.20317 0.881574</point>
+
+	<weights>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 </weights>
+
+	<meta><key>label</key><value>armrest-right</value></meta>
+
+	<meta><key>parentLabel</key><value>armrest</value></meta>
+</node>
+
+<node>
+	<id>ArmBarRight</id>
+	<type>CURVE</type>
+	<mesh>meshes/ArmBarRight.obj</mesh>
+
+	<controls>
+		<c>31</c>
+	</controls>
+
+	<point>-0.302695 -0.184915 0.744567</point>
+	<point>-0.302693 -0.184873 0.748672</point>
+	<point>-0.302681 -0.184834 0.752777</point>
+	<point>-0.302657 -0.184801 0.756882</point>
+	<point>-0.302605 -0.18478 0.760987</point>
+	<point>-0.302536 -0.184769 0.765091</point>
+	<point>-0.302453 -0.18477 0.769195</point>
+	<point>-0.30236 -0.184783 0.773299</point>
+	<point>-0.302253 -0.184813 0.777403</point>
+	<point>-0.302144 -0.184846 0.781507</point>
+	<point>-0.30203 -0.184884 0.785611</point>
+	<point>-0.301912 -0.18493 0.789714</point>
+	<point>-0.301809 -0.184976 0.793817</point>
+	<point>-0.301722 -0.185018 0.797921</point>
+	<point>-0.301671 -0.185049 0.802026</point>
+	<point>-0.301711 -0.185049 0.806131</point>
+	<point>-0.301788 -0.185039 0.810235</point>
+	<point>-0.301902 -0.185025 0.814339</point>
+	<point>-0.302021 -0.185013 0.818443</point>
+	<point>-0.302128 -0.185008 0.822547</point>
+	<point>-0.302202 -0.185008 0.826651</point>
+	<point>-0.302228 -0.18501 0.830756</point>
+	<point>-0.302213 -0.18501 0.834861</point>
+	<point>-0.302172 -0.185007 0.838966</point>
+	<point>-0.30212 -0.185 0.843071</point>
+	<point>-0.302064 -0.184993 0.847176</point>
+	<point>-0.301999 -0.184979 0.851281</point>
+	<point>-0.301932 -0.184959 0.855385</point>
+	<point>-0.301864 -0.184916 0.85949</point>
+	<point>-0.301797 -0.184873 0.863594</point>
+	<point>-0.30173 -0.184831 0.867698</point>
+
+	<weights>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 </weights>
+
+	<meta><key>label</key><value>armrest-right-support</value></meta>
+
+	<meta><key>parentLabel</key><value>armrest</value></meta>
+</node>
+
+<node>
+	<id>ArmBarLeft</id>
+	<type>CURVE</type>
+	<mesh>meshes/ArmBarLeft.obj</mesh>
+
+	<controls>
+		<c>31</c>
+	</controls>
+
+	<point>0.303506 -0.184915 0.744567</point>
+	<point>0.303508 -0.184873 0.748672</point>
+	<point>0.30352 -0.184834 0.752777</point>
+	<point>0.303545 -0.184801 0.756882</point>
+	<point>0.303597 -0.18478 0.760986</point>
+	<point>0.303665 -0.184769 0.765091</point>
+	<point>0.303748 -0.18477 0.769195</point>
+	<point>0.303841 -0.184783 0.773299</point>
+	<point>0.303948 -0.184813 0.777403</point>
+	<point>0.304057 -0.184846 0.781507</point>
+	<point>0.304171 -0.184884 0.785611</point>
+	<point>0.304289 -0.18493 0.789714</point>
+	<point>0.304392 -0.184976 0.793817</point>
+	<point>0.30448 -0.185018 0.797921</point>
+	<point>0.304531 -0.185049 0.802026</point>
+	<point>0.304491 -0.185049 0.806131</point>
+	<point>0.304413 -0.185039 0.810235</point>
+	<point>0.304299 -0.185025 0.814339</point>
+	<point>0.30418 -0.185013 0.818443</point>
+	<point>0.304073 -0.185008 0.822547</point>
+	<point>0.303999 -0.185008 0.826651</point>
+	<point>0.303973 -0.18501 0.830756</point>
+	<point>0.303988 -0.18501 0.834861</point>
+	<point>0.304029 -0.185007 0.838966</point>
+	<point>0.304081 -0.185 0.843071</point>
+	<point>0.304138 -0.184993 0.847176</point>
+	<point>0.304202 -0.184979 0.851281</point>
+	<point>0.30427 -0.184959 0.855385</point>
+	<point>0.304337 -0.184916 0.85949</point>
+	<point>0.304404 -0.184873 0.863594</point>
+	<point>0.304471 -0.184831 0.867698</point>
+
+	<weights>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 </weights>
+
+	<meta><key>label</key><value>armrest-left-support</value></meta>
+
+	<meta><key>parentLabel</key><value>armrest</value></meta>
+</node>
+
+<node>
+	<id>SeatBarLeft</id>
+	<type>CURVE</type>
+	<mesh>meshes/SeatBarLeft.obj</mesh>
+
+	<controls>
+		<c>34</c>
+	</controls>
+
+	<point>0.296072 0.224815 0.689501</point>
+	<point>0.296243 0.211414 0.689573</point>
+	<point>0.296394 0.198014 0.689649</point>
+	<point>0.296528 0.184613 0.689718</point>
+	<point>0.296584 0.171211 0.689761</point>
+	<point>0.296516 0.157809 0.689742</point>
+	<point>0.296387 0.144408 0.689677</point>
+	<point>0.296259 0.131007 0.689544</point>
+	<point>0.296153 0.117607 0.689373</point>
+	<point>0.29607 0.104208 0.689131</point>
+	<point>0.295975 0.0908086 0.688883</point>
+	<point>0.295927 0.0774077 0.688723</point>
+	<point>0.295813 0.0640074 0.688556</point>
+	<point>0.295682 0.0506068 0.688425</point>
+	<point>0.29547 0.0372068 0.688365</point>
+	<point>0.295191 0.0238081 0.688368</point>
+	<point>0.294831 0.0104112 0.688372</point>
+	<point>0.294462 -0.00298547 0.688404</point>
+	<point>0.294087 -0.0163821 0.688398</point>
+	<point>0.293798 -0.0297807 0.688372</point>
+	<point>0.293686 -0.0431818 0.688326</point>
+	<point>0.29378 -0.056583 0.688261</point>
+	<point>0.29402 -0.0699824 0.688195</point>
+	<point>0.294358 -0.0833799 0.688126</point>
+	<point>0.294774 -0.0967755 0.68812</point>
+	<point>0.29521 -0.110169 0.688181</point>
+	<point>0.295637 -0.123564 0.688291</point>
+	<point>0.296011 -0.13696 0.688452</point>
+	<point>0.296324 -0.150357 0.688637</point>
+	<point>0.296558 -0.163756 0.688851</point>
+	<point>0.296675 -0.177155 0.689089</point>
+	<point>0.29674 -0.190554 0.689351</point>
+	<point>0.296747 -0.203952 0.689628</point>
+	<point>0.296631 -0.217352 0.689893</point>
+
+	<weights>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 </weights>
+
+	<meta><key>label</key><value>leg-bar-left</value></meta>
+
+	<meta><key>parentLabel</key><value>leg</value></meta>
+</node>
+
+<node>
+	<id>SeatBarRight</id>
+	<type>CURVE</type>
+	<mesh>meshes/SeatBarRight.obj</mesh>
+
+	<controls>
+		<c>33</c>
+	</controls>
+
+	<point>-0.289331 0.202279 0.690319</point>
+	<point>-0.288841 0.188871 0.690392</point>
+	<point>-0.288371 0.175463 0.69046</point>
+	<point>-0.287936 0.162054 0.690522</point>
+	<point>-0.287554 0.148643 0.690576</point>
+	<point>-0.28722 0.135231 0.690621</point>
+	<point>-0.28692 0.121818 0.690662</point>
+	<point>-0.286681 0.108404 0.690694</point>
+	<point>-0.286488 0.0949888 0.690718</point>
+	<point>-0.286332 0.081573 0.690734</point>
+	<point>-0.286225 0.068157 0.690737</point>
+	<point>-0.286136 0.0547409 0.690735</point>
+	<point>-0.28609 0.0413245 0.690719</point>
+	<point>-0.286071 0.0279082 0.690691</point>
+	<point>-0.286082 0.0144918 0.690648</point>
+	<point>-0.286126 0.0010756 0.690588</point>
+	<point>-0.286188 -0.0123405 0.690517</point>
+	<point>-0.286268 -0.0257564 0.690438</point>
+	<point>-0.286364 -0.0391722 0.690355</point>
+	<point>-0.286466 -0.052588 0.690273</point>
+	<point>-0.286579 -0.0660037 0.690195</point>
+	<point>-0.286704 -0.0794194 0.690128</point>
+	<point>-0.286838 -0.0928355 0.690077</point>
+	<point>-0.28698 -0.106251 0.690043</point>
+	<point>-0.287123 -0.119666 0.690018</point>
+	<point>-0.287269 -0.133082 0.690003</point>
+	<point>-0.287418 -0.146497 0.690002</point>
+	<point>-0.287567 -0.159913 0.690019</point>
+	<point>-0.287718 -0.173329 0.690056</point>
+	<point>-0.287965 -0.186739 0.690351</point>
+	<point>-0.288246 -0.200146 0.690735</point>
+	<point>-0.288527 -0.213555 0.691119</point>
+	<point>-0.288807 -0.226963 0.691503</point>
+
+	<weights>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 </weights>
+
+	<meta><key>label</key><value>leg-bar-right</value></meta>
+
+	<meta><key>parentLabel</key><value>leg</value></meta>
+</node>
+
+<node>
+	<id>LegFrontLeft</id>
+	<type>CURVE</type>
+	<mesh>meshes/LegFrontLeft.obj</mesh>
+
+	<controls>
+		<c>35</c>
+	</controls>
+
+	<point>0.255906 -0.221633 0.642023</point>
+	<point>0.240039 -0.221515 0.623654</point>
+	<point>0.224158 -0.221484 0.605297</point>
+	<point>0.208266 -0.22154 0.586949</point>
+	<point>0.192362 -0.221709 0.568613</point>
+	<point>0.176447 -0.221985 0.550286</point>
+	<point>0.160533 -0.222301 0.531961</point>
+	<point>0.144625 -0.222628 0.513629</point>
+	<point>0.128733 -0.222933 0.495284</point>
+	<point>0.112859 -0.223202 0.476923</point>
+	<point>0.0970057 -0.223404 0.458542</point>
+	<point>0.0811711 -0.223496 0.440146</point>
+	<point>0.0653351 -0.2235 0.421749</point>
+	<point>0.0494839 -0.223427 0.403366</point>
+	<point>0.0336145 -0.223318 0.384999</point>
+	<point>0.0177279 -0.223213 0.366647</point>
+	<point>0.00182676 -0.223156 0.348307</point>
+	<point>-0.0140802 -0.223165 0.329972</point>
+	<point>-0.029987 -0.223232 0.311638</point>
+	<point>-0.0458918 -0.223324 0.293301</point>
+	<point>-0.0617935 -0.223427 0.274961</point>
+	<point>-0.0776901 -0.223537 0.256618</point>
+	<point>-0.0935857 -0.223641 0.238274</point>
+	<point>-0.109494 -0.223722 0.219941</point>
+	<point>-0.125423 -0.223771 0.201624</point>
+	<point>-0.141374 -0.223785 0.183328</point>
+	<point>-0.157347 -0.223762 0.16505</point>
+	<point>-0.173352 -0.223692 0.146802</point>
+	<point>-0.189393 -0.22358 0.128584</point>
+	<point>-0.205473 -0.223433 0.110402</point>
+	<point>-0.221579 -0.223273 0.0922424</point>
+	<point>-0.23771 -0.223109 0.0741049</point>
+	<point>-0.25387 -0.22295 0.0559934</point>
+	<point>-0.270076 -0.222804 0.0379223</point>
+	<point>-0.286354 -0.222689 0.0199166</point>
+
+	<weights>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 </weights>
+
+	<meta><key>label</key><value>leg-front-left</value></meta>
+
+	<meta><key>parentLabel</key><value>leg</value></meta>
+</node>
+
+<node>
+	<id>LegBackLeft</id>
+	<type>CURVE</type>
+	<mesh>meshes/LegBackLeft.obj</mesh>
+
+	<controls>
+		<c>35</c>
+	</controls>
+
+	<point>0.238316 0.225447 0.623156</point>
+	<point>0.222439 0.225396 0.604778</point>
+	<point>0.206608 0.225386 0.586361</point>
+	<point>0.190838 0.225439 0.567893</point>
+	<point>0.175092 0.225533 0.549403</point>
+	<point>0.159355 0.225653 0.530906</point>
+	<point>0.143614 0.225809 0.512413</point>
+	<point>0.127858 0.225985 0.493932</point>
+	<point>0.112077 0.226172 0.475473</point>
+	<point>0.0962488 0.22636 0.457054</point>
+	<point>0.080366 0.226538 0.438683</point>
+	<point>0.0644264 0.226691 0.42036</point>
+	<point>0.048427 0.22681 0.40209</point>
+	<point>0.0323814 0.226897 0.38386</point>
+	<point>0.0163003 0.226952 0.36566</point>
+	<point>0.000188249 0.226963 0.347489</point>
+	<point>-0.0159376 0.226933 0.32933</point>
+	<point>-0.032066 0.226873 0.311172</point>
+	<point>-0.0481781 0.226769 0.293001</point>
+	<point>-0.064251 0.226621 0.274795</point>
+	<point>-0.0802884 0.226457 0.256558</point>
+	<point>-0.0962798 0.226299 0.238282</point>
+	<point>-0.112215 0.22616 0.219954</point>
+	<point>-0.128099 0.226054 0.201584</point>
+	<point>-0.14394 0.225989 0.183176</point>
+	<point>-0.159759 0.225953 0.164748</point>
+	<point>-0.175573 0.225936 0.146317</point>
+	<point>-0.191398 0.225924 0.127895</point>
+	<point>-0.207247 0.225915 0.109493</point>
+	<point>-0.223131 0.225902 0.0911213</point>
+	<point>-0.239041 0.225884 0.0727726</point>
+	<point>-0.254992 0.225863 0.0544599</point>
+	<point>-0.271028 0.225831 0.0362215</point>
+	<point>-0.287166 0.2258 0.0180716</point>
+	<point>-0.30339 0.225794 0</point>
+
+	<weights>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 </weights>
+
+	<meta><key>label</key><value>leg-back-left</value></meta>
+
+	<meta><key>parentLabel</key><value>leg</value></meta>
+</node>
+
+<node>
+	<id>LegFrontRight</id>
+	<type>CURVE</type>
+	<mesh>meshes/LegFrontRight.obj</mesh>
+
+	<controls>
+		<c>35</c>
+	</controls>
+
+	<point>-0.240943 -0.18696 0.634279</point>
+	<point>-0.225073 -0.186819 0.615913</point>
+	<point>-0.209215 -0.186627 0.597537</point>
+	<point>-0.193372 -0.186393 0.579149</point>
+	<point>-0.177548 -0.186126 0.560745</point>
+	<point>-0.161733 -0.185853 0.542332</point>
+	<point>-0.145923 -0.185594 0.523915</point>
+	<point>-0.13011 -0.185378 0.5055</point>
+	<point>-0.114288 -0.185244 0.487093</point>
+	<point>-0.0984477 -0.185213 0.468701</point>
+	<point>-0.0825916 -0.185266 0.450322</point>
+	<point>-0.0667111 -0.185429 0.431965</point>
+	<point>-0.050806 -0.185683 0.41363</point>
+	<point>-0.034883 -0.185985 0.395311</point>
+	<point>-0.0189462 -0.186283 0.377005</point>
+	<point>-0.00300485 -0.18651 0.358702</point>
+	<point>0.0129336 -0.186664 0.340395</point>
+	<point>0.0288648 -0.186743 0.322081</point>
+	<point>0.0447844 -0.186723 0.303758</point>
+	<point>0.0606791 -0.186506 0.285413</point>
+	<point>0.0765553 -0.186107 0.267056</point>
+	<point>0.0924347 -0.1856 0.248704</point>
+	<point>0.108334 -0.185082 0.23037</point>
+	<point>0.124279 -0.184638 0.212074</point>
+	<point>0.140267 -0.184295 0.193813</point>
+	<point>0.156286 -0.184055 0.175578</point>
+	<point>0.17234 -0.183984 0.157371</point>
+	<point>0.188408 -0.184046 0.139178</point>
+	<point>0.204487 -0.184269 0.120995</point>
+	<point>0.220572 -0.184593 0.102819</point>
+	<point>0.236663 -0.184941 0.0846488</point>
+	<point>0.252771 -0.185288 0.0664931</point>
+	<point>0.268904 -0.18561 0.0483603</point>
+	<point>0.285064 -0.1859 0.0302505</point>
+	<point>0.30127 -0.186135 0.0121804</point>
+
+	<weights>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 </weights>
+
+	<meta><key>label</key><value>leg-front-right</value></meta>
+
+	<meta><key>parentLabel</key><value>leg</value></meta>
+</node>
+
+<node>
+	<id>LegBackRight</id>
+	<type>CURVE</type>
+	<mesh>meshes/LegBackRight.obj</mesh>
+
+	<controls>
+		<c>35</c>
+	</controls>
+
+	<point>-0.240943 0.187448 0.634279</point>
+	<point>-0.225073 0.187589 0.615913</point>
+	<point>-0.209215 0.187781 0.597537</point>
+	<point>-0.193372 0.188015 0.579149</point>
+	<point>-0.177548 0.188283 0.560745</point>
+	<point>-0.161733 0.188555 0.542332</point>
+	<point>-0.145923 0.188814 0.523915</point>
+	<point>-0.13011 0.18903 0.5055</point>
+	<point>-0.114288 0.189165 0.487093</point>
+	<point>-0.0984477 0.189196 0.468701</point>
+	<point>-0.0825916 0.189143 0.450322</point>
+	<point>-0.0667111 0.188979 0.431965</point>
+	<point>-0.050806 0.188725 0.41363</point>
+	<point>-0.034883 0.188423 0.395311</point>
+	<point>-0.0189462 0.188126 0.377005</point>
+	<point>-0.00300485 0.187899 0.358702</point>
+	<point>0.0129336 0.187745 0.340395</point>
+	<point>0.0288648 0.187665 0.322081</point>
+	<point>0.0447844 0.187685 0.303758</point>
+	<point>0.0606791 0.187902 0.285413</point>
+	<point>0.0765553 0.188301 0.267056</point>
+	<point>0.0924347 0.188808 0.248704</point>
+	<point>0.108334 0.189326 0.23037</point>
+	<point>0.124279 0.18977 0.212074</point>
+	<point>0.140267 0.190113 0.193813</point>
+	<point>0.156286 0.190353 0.175578</point>
+	<point>0.17234 0.190424 0.157371</point>
+	<point>0.188408 0.190362 0.139178</point>
+	<point>0.204487 0.19014 0.120995</point>
+	<point>0.220572 0.189816 0.102819</point>
+	<point>0.236663 0.189467 0.0846488</point>
+	<point>0.252771 0.189121 0.0664931</point>
+	<point>0.268904 0.188798 0.0483603</point>
+	<point>0.285064 0.188508 0.0302505</point>
+	<point>0.30127 0.188274 0.0121804</point>
+
+	<weights>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 </weights>
+
+	<meta><key>label</key><value>leg-back-right</value></meta>
+
+	<meta><key>parentLabel</key><value>leg</value></meta>
+</node>
+
+<node>
+	<id>BottomBarFront</id>
+	<type>CURVE</type>
+	<mesh>meshes/BottomBarFront.obj</mesh>
+
+	<controls>
+		<c>36</c>
+	</controls>
+
+	<point>-0.197148 -0.20061 0.173826</point>
+	<point>-0.185728 -0.200645 0.173801</point>
+	<point>-0.174307 -0.2007 0.173783</point>
+	<point>-0.162887 -0.200767 0.173778</point>
+	<point>-0.151466 -0.200833 0.173768</point>
+	<point>-0.140046 -0.200882 0.173754</point>
+	<point>-0.128626 -0.200921 0.173732</point>
+	<point>-0.117205 -0.200956 0.173699</point>
+	<point>-0.105785 -0.200969 0.173658</point>
+	<point>-0.0943646 -0.200939 0.173614</point>
+	<point>-0.0829445 -0.200849 0.173569</point>
+	<point>-0.0715249 -0.200714 0.17353</point>
+	<point>-0.0601051 -0.20058 0.17352</point>
+	<point>-0.0486851 -0.200488 0.173561</point>
+	<point>-0.0372648 -0.200468 0.173618</point>
+	<point>-0.0258445 -0.200518 0.173654</point>
+	<point>-0.0144244 -0.200608 0.173675</point>
+	<point>-0.00300459 -0.200734 0.173703</point>
+	<point>0.00841523 -0.200856 0.173727</point>
+	<point>0.0198352 -0.200973 0.173741</point>
+	<point>0.0312553 -0.201059 0.173748</point>
+	<point>0.0426757 -0.201117 0.173747</point>
+	<point>0.0540961 -0.201153 0.17374</point>
+	<point>0.0655166 -0.201166 0.173729</point>
+	<point>0.0769371 -0.201164 0.173705</point>
+	<point>0.0883575 -0.201155 0.173667</point>
+	<point>0.0997783 -0.201162 0.173623</point>
+	<point>0.111199 -0.201188 0.173589</point>
+	<point>0.122619 -0.201228 0.173565</point>
+	<point>0.134039 -0.201263 0.173564</point>
+	<point>0.14546 -0.201277 0.173575</point>
+	<point>0.15688 -0.201263 0.173589</point>
+	<point>0.168301 -0.201223 0.173603</point>
+	<point>0.179721 -0.201172 0.173632</point>
+	<point>0.191141 -0.201136 0.173707</point>
+	<point>0.202561 -0.201038 0.173846</point>
+
+	<weights>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 </weights>
+
+	<meta><key>label</key><value>leg-bar-front</value></meta>
+
+	<meta><key>parentLabel</key><value>leg</value></meta>
+</node>
+
+<node>
+	<id>BottomBarBack</id>
+	<type>CURVE</type>
+	<mesh>meshes/BottomBarBack.obj</mesh>
+
+	<controls>
+		<c>36</c>
+	</controls>
+
+	<point>-0.197098 0.207261 0.173826</point>
+	<point>-0.185677 0.207225 0.173801</point>
+	<point>-0.174257 0.207171 0.173783</point>
+	<point>-0.162837 0.207103 0.173778</point>
+	<point>-0.151416 0.207038 0.173768</point>
+	<point>-0.139996 0.206988 0.173754</point>
+	<point>-0.128576 0.20695 0.173732</point>
+	<point>-0.117155 0.206914 0.173699</point>
+	<point>-0.105735 0.206902 0.173658</point>
+	<point>-0.0943144 0.206932 0.173614</point>
+	<point>-0.0828944 0.207021 0.173569</point>
+	<point>-0.0714747 0.207157 0.17353</point>
+	<point>-0.060055 0.20729 0.17352</point>
+	<point>-0.048635 0.207382 0.173561</point>
+	<point>-0.0372147 0.207402 0.173618</point>
+	<point>-0.0257944 0.207352 0.173654</point>
+	<point>-0.0143742 0.207263 0.173675</point>
+	<point>-0.00295443 0.207137 0.173703</point>
+	<point>0.0084654 0.207015 0.173727</point>
+	<point>0.0198853 0.206897 0.173741</point>
+	<point>0.0313054 0.206811 0.173748</point>
+	<point>0.0427258 0.206754 0.173747</point>
+	<point>0.0541463 0.206717 0.17374</point>
+	<point>0.0655668 0.206705 0.173729</point>
+	<point>0.0769872 0.206706 0.173705</point>
+	<point>0.0884077 0.206716 0.173667</point>
+	<point>0.0998285 0.206708 0.173623</point>
+	<point>0.111249 0.206683 0.173589</point>
+	<point>0.122669 0.206643 0.173565</point>
+	<point>0.13409 0.206608 0.173564</point>
+	<point>0.14551 0.206593 0.173575</point>
+	<point>0.15693 0.206607 0.173589</point>
+	<point>0.168351 0.206647 0.173603</point>
+	<point>0.179771 0.206698 0.173632</point>
+	<point>0.191192 0.206735 0.173707</point>
+	<point>0.202611 0.206832 0.173846</point>
+
+	<weights>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 </weights>
+
+	<meta><key>label</key><value>leg-bar-back</value></meta>
+
+	<meta><key>parentLabel</key><value>leg</value></meta>
+</node>
+
+<node>
+	<id>Seat</id>
+	<type>SHEET</type>
+	<mesh>meshes/Seat.obj</mesh>
+
+	<controls>
+		<c>4</c>
+		<c>4</c>
+	</controls>
+
+	<point>-0.24109 -0.194938 0.684416</point>
+	<point>-0.24109 -0.0592497 0.684416</point>
+	<point>-0.24109 0.0764383 0.684416</point>
+	<point>-0.24109 0.212127 0.684416</point>
+	<point>-0.0789763 -0.194938 0.643956</point>
+	<point>-0.0789763 -0.0592497 0.643956</point>
+	<point>-0.0789763 0.0764383 0.643956</point>
+	<point>-0.0789763 0.212127 0.643956</point>
+	<point>0.0831379 -0.194938 0.643998</point>
+	<point>0.0831379 -0.0592497 0.643998</point>
+	<point>0.0831379 0.0764383 0.643998</point>
+	<point>0.0831379 0.212127 0.643998</point>
+	<point>0.245252 -0.194938 0.685385</point>
+	<point>0.245252 -0.0592497 0.685385</point>
+	<point>0.245252 0.0764383 0.685385</point>
+	<point>0.245252 0.212127 0.685385</point>
+
+	<weights>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 </weights>
+
+	<meta><key>label</key><value>seat</value></meta>
+
+	<meta><key>parentLabel</key><value>seat</value></meta>
+</node>
+
+<node>
+	<id>Back</id>
+	<type>SHEET</type>
+	<mesh>meshes/Back.obj</mesh>
+
+	<controls>
+		<c>12</c>
+		<c>4</c>
+	</controls>
+
+	<point>-0.286059 0.193061 0.927991</point>
+	<point>-0.286059 0.193061 0.975243</point>
+	<point>-0.286059 0.193061 1.02249</point>
+	<point>-0.286059 0.193061 1.06976</point>
+	<point>-0.233726 0.205665 0.927991</point>
+	<point>-0.233726 0.205665 0.975243</point>
+	<point>-0.233726 0.205665 1.02249</point>
+	<point>-0.233726 0.205665 1.06976</point>
+	<point>-0.181392 0.211203 0.927991</point>
+	<point>-0.181392 0.211203 0.975243</point>
+	<point>-0.181392 0.211203 1.02249</point>
+	<point>-0.181392 0.211203 1.06976</point>
+	<point>-0.129057 0.216793 0.927991</point>
+	<point>-0.129057 0.216793 0.975243</point>
+	<point>-0.129057 0.216793 1.02249</point>
+	<point>-0.129057 0.216793 1.06976</point>
+	<point>-0.0767231 0.221094 0.927991</point>
+	<point>-0.0767231 0.221094 0.975243</point>
+	<point>-0.0767231 0.221094 1.02249</point>
+	<point>-0.0767231 0.221094 1.06976</point>
+	<point>-0.024389 0.221903 0.927991</point>
+	<point>-0.024389 0.221903 0.975243</point>
+	<point>-0.024389 0.221903 1.02249</point>
+	<point>-0.024389 0.221903 1.06976</point>
+	<point>0.0279452 0.221903 0.927991</point>
+	<point>0.0279452 0.221903 0.975243</point>
+	<point>0.0279452 0.221903 1.02249</point>
+	<point>0.0279452 0.221903 1.06976</point>
+	<point>0.0802793 0.221094 0.927991</point>
+	<point>0.0802793 0.221094 0.975243</point>
+	<point>0.0802793 0.221094 1.02249</point>
+	<point>0.0802793 0.221094 1.06976</point>
+	<point>0.132613 0.216793 0.927991</point>
+	<point>0.132613 0.216793 0.975243</point>
+	<point>0.132613 0.216793 1.02249</point>
+	<point>0.132613 0.216793 1.06976</point>
+	<point>0.184948 0.211203 0.927991</point>
+	<point>0.184948 0.211203 0.975243</point>
+	<point>0.184948 0.211203 1.02249</point>
+	<point>0.184948 0.211203 1.06976</point>
+	<point>0.237282 0.205665 0.927991</point>
+	<point>0.237282 0.205665 0.975243</point>
+	<point>0.237282 0.205665 1.02249</point>
+	<point>0.237282 0.205665 1.06976</point>
+	<point>0.289615 0.193061 0.927991</point>
+	<point>0.289615 0.193061 0.975243</point>
+	<point>0.289615 0.193061 1.02249</point>
+	<point>0.289615 0.193061 1.06976</point>
+
+	<weights>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 </weights>
+
+	<meta><key>label</key><value>back</value></meta>
+
+	<meta><key>parentLabel</key><value>back</value></meta>
+</node>
+
+<edge>
+	<id>Seat : LegFrontLeft</id>
+	<type>POINT</type>
+
+	<n>Seat</n>
+	<n>LegFrontLeft</n>
+	<coord>
+		<uv>1 0 0 0</uv>
+	</coord>
+	<coord>
+		<uv>0 0 0 0</uv>
+	</coord>
+</edge>
+
+<edge>
+	<id>Seat : LegBackLeft</id>
+	<type>POINT</type>
+
+	<n>Seat</n>
+	<n>LegBackLeft</n>
+	<coord>
+		<uv>0.953389 1 0 0</uv>
+	</coord>
+	<coord>
+		<uv>0 0 0 0</uv>
+	</coord>
+</edge>
+
+<edge>
+	<id>Seat : LegFrontRight</id>
+	<type>POINT</type>
+
+	<n>Seat</n>
+	<n>LegFrontRight</n>
+	<coord>
+		<uv>0.0119869 0.0097994 0 0</uv>
+	</coord>
+	<coord>
+		<uv>0 0 0 0</uv>
+	</coord>
+</edge>
+
+<edge>
+	<id>Seat : LegBackRight</id>
+	<type>POINT</type>
+
+	<n>Seat</n>
+	<n>LegBackRight</n>
+	<coord>
+		<uv>0.0127426 0.9375 0 0</uv>
+	</coord>
+	<coord>
+		<uv>0 0 0 0</uv>
+	</coord>
+</edge>
+
+<edge>
+	<id>Seat : ArmBarRight</id>
+	<type>POINT</type>
+
+	<n>Seat</n>
+	<n>ArmBarRight</n>
+	<coord>
+		<uv>0 0.0245 0 0</uv>
+	</coord>
+	<coord>
+		<uv>0 0 0 0</uv>
+	</coord>
+</edge>
+
+<edge>
+	<id>Seat : ArmBarLeft</id>
+	<type>POINT</type>
+
+	<n>Seat</n>
+	<n>ArmBarLeft</n>
+	<coord>
+		<uv>1 0.0245 0 0</uv>
+	</coord>
+	<coord>
+		<uv>0 0 0 0</uv>
+	</coord>
+</edge>
+
+<edge>
+	<id>Seat : BarLeft</id>
+	<type>POINT</type>
+
+	<n>Seat</n>
+	<n>BarLeft</n>
+	<coord>
+		<uv>1 0.9375 0 0</uv>
+	</coord>
+	<coord>
+		<uv>0 0 0 0</uv>
+	</coord>
+</edge>
+
+<edge>
+	<id>Seat : BarRight</id>
+	<type>POINT</type>
+
+	<n>Seat</n>
+	<n>BarRight</n>
+	<coord>
+		<uv>0 0.935175 0 0</uv>
+	</coord>
+	<coord>
+		<uv>0 0 0 0</uv>
+	</coord>
+</edge>
+
+<edge>
+	<id>LegFrontLeft : BottomBarFront</id>
+	<type>POINT</type>
+
+	<n>LegFrontLeft</n>
+	<n>BottomBarFront</n>
+	<coord>
+		<uv>0.762266 0 0 0</uv>
+	</coord>
+	<coord>
+		<uv>0.103109 0 0 0</uv>
+	</coord>
+</edge>
+
+<edge>
+	<id>LegFrontLeft : SeatBarLeft</id>
+	<type>POINT</type>
+
+	<n>LegFrontLeft</n>
+	<n>SeatBarLeft</n>
+	<coord>
+		<uv>0 0 0 0</uv>
+	</coord>
+	<coord>
+		<uv>1 0 0 0</uv>
+	</coord>
+</edge>
+
+<edge>
+	<id>LegBackLeft : BottomBarBack</id>
+	<type>POINT</type>
+
+	<n>LegBackLeft</n>
+	<n>BottomBarBack</n>
+	<coord>
+		<uv>0.735075 0 0 0</uv>
+	</coord>
+	<coord>
+		<uv>0.0924553 0 0 0</uv>
+	</coord>
+</edge>
+
+<edge>
+	<id>LegBackLeft : SeatBarLeft</id>
+	<type>POINT</type>
+
+	<n>LegBackLeft</n>
+	<n>SeatBarLeft</n>
+	<coord>
+		<uv>0 0 0 0</uv>
+	</coord>
+	<coord>
+		<uv>0 0 0 0</uv>
+	</coord>
+</edge>
+
+<edge>
+	<id>LegFrontRight : BottomBarFront</id>
+	<type>POINT</type>
+
+	<n>LegFrontRight</n>
+	<n>BottomBarFront</n>
+	<coord>
+		<uv>0.744043 0 0 0</uv>
+	</coord>
+	<coord>
+		<uv>0.895456 0 0 0</uv>
+	</coord>
+</edge>
+
+<edge>
+	<id>LegFrontRight : SeatBarRight</id>
+	<type>POINT</type>
+
+	<n>LegFrontRight</n>
+	<n>SeatBarRight</n>
+	<coord>
+		<uv>0 0 0 0</uv>
+	</coord>
+	<coord>
+		<uv>0.937883 0 0 0</uv>
+	</coord>
+</edge>
+
+<edge>
+	<id>LegBackRight : SeatBarRight</id>
+	<type>POINT</type>
+
+	<n>LegBackRight</n>
+	<n>SeatBarRight</n>
+	<coord>
+		<uv>0 0 0 0</uv>
+	</coord>
+	<coord>
+		<uv>0.0180141 0 0 0</uv>
+	</coord>
+</edge>
+
+<edge>
+	<id>LegBackRight : BottomBarBack</id>
+	<type>POINT</type>
+
+	<n>LegBackRight</n>
+	<n>BottomBarBack</n>
+	<coord>
+		<uv>0.744217 0 0 0</uv>
+	</coord>
+	<coord>
+		<uv>0.895328 0 0 0</uv>
+	</coord>
+</edge>
+
+<edge>
+	<id>ArmRestRight : ArmBarRight</id>
+	<type>POINT</type>
+
+	<n>ArmRestRight</n>
+	<n>ArmBarRight</n>
+	<coord>
+		<uv>0.973511 0 0 0</uv>
+	</coord>
+	<coord>
+		<uv>1 0 0 0</uv>
+	</coord>
+</edge>
+
+<edge>
+	<id>ArmRestRight : BarRight</id>
+	<type>POINT</type>
+
+	<n>ArmRestRight</n>
+	<n>BarRight</n>
+	<coord>
+		<uv>0 0 0 0</uv>
+	</coord>
+	<coord>
+		<uv>0.448771 0 0 0</uv>
+	</coord>
+</edge>
+
+<edge>
+	<id>ArmRestLeft : ArmBarLeft</id>
+	<type>POINT</type>
+
+	<n>ArmRestLeft</n>
+	<n>ArmBarLeft</n>
+	<coord>
+		<uv>0.957705 0 0 0</uv>
+	</coord>
+	<coord>
+		<uv>1 0 0 0</uv>
+	</coord>
+</edge>
+
+<edge>
+	<id>ArmRestLeft : BarLeft</id>
+	<type>POINT</type>
+
+	<n>ArmRestLeft</n>
+	<n>BarLeft</n>
+	<coord>
+		<uv>0 0 0 0</uv>
+	</coord>
+	<coord>
+		<uv>0.43208 0 0 0</uv>
+	</coord>
+</edge>
+
+<edge>
+	<id>Back : BarLeft</id>
+	<type>POINT</type>
+
+	<n>Back</n>
+	<n>BarLeft</n>
+	<coord>
+		<uv>1 0 0 0</uv>
+	</coord>
+	<coord>
+		<uv>0.565558 0 0 0</uv>
+	</coord>
+</edge>
+
+<edge>
+	<id>Back : BarRight</id>
+	<type>POINT</type>
+
+	<n>Back</n>
+	<n>BarRight</n>
+	<coord>
+		<uv>0 0.0121739 0 0</uv>
+	</coord>
+	<coord>
+		<uv>0.583119 0 0 0</uv>
+	</coord>
+</edge>
+
+<group>
+	<n>LegFrontLeft</n>
+	<n>LegFrontRight</n>
+</group>
+
+<group>
+	<n>LegBackLeft</n>
+	<n>LegBackRight</n>
+</group>
+
+<group>
+	<n>BarLeft</n>
+	<n>BarRight</n>
+</group>
+
+<group>
+	<n>BottomBarFront</n>
+	<n>BottomBarBack</n>
+</group>
+
+<group>
+	<n>SeatBarLeft</n>
+	<n>SeatBarRight</n>
+</group>
+
+<group>
+	<n>ArmRestLeft</n>
+	<n>ArmRestRight</n>
+</group>
+
+<group>
+	<n>ArmBarRight</n>
+	<n>ArmBarLeft</n>
+</group>
+
+
+</document>

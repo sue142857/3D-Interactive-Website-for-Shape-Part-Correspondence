@@ -1,0 +1,16 @@
+Back back
+Seat seat
+BarLeft seat
+BarRight seat
+ArmBarLeft seat
+ArmRestLeft seat
+ArmBarRight seat
+ArmRestRight seat
+BottomBarFront leg
+BottomBarBack leg
+LegBackRight leg
+LegBackLeft leg
+SeatBarRight leg
+LegFrontRight leg
+SeatBarLeft leg
+LegFrontLeft leg

@@ -13,7 +13,7 @@ include "sql_library/db.php";
     <script src="js/loadShapes.js"></script>
     <script src="js/sendResults.js"></script>
     <script src="js/viewer.js"></script>
-    <script src="js/labelShapes.js"></script>
+    <script src="js/sendLabelResult.js"></script>
     <link rel="stylesheet" type="text/css" href="style/style.css">
 </head>
 <body>
@@ -25,7 +25,7 @@ include "sql_library/db.php";
 
 <div id="job"><?php echo giveMeNameNextJob( 2 )?></div>
 
-<div id="shapes"></div>aaa
+<div id="shapes"></div>
 
 <script>
     loadTheShapes();
@@ -35,7 +35,15 @@ include "sql_library/db.php";
 
 <button type="button" onclick="loadAllShapes(shapesLoaded)">Load Shape</button>
 
-<button type="button" onclick="labelTheShapes(shapesLoaded[0])">Label Shape</button>
+<script>
+    loadTable();
+</script>
+
+<script>
+    loadLabelTask();
+</script>
+
+<button type="button" onclick="doNextTask()">Save</button>
 
 <div id="container"></div>
 <script>

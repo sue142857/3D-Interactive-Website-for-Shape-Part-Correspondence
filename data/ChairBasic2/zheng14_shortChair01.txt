@@ -1,0 +1,10 @@
+Seat seat
+BarTop back
+BarMiddle back
+BarBottom back
+BarRight back
+BarLeft back
+LegBackRight NULL
+LegFrontRight NULL
+LegBackLeft NULL
+LegFrontLeft NULL

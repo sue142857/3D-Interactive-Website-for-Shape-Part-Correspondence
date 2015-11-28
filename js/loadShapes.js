@@ -3,6 +3,22 @@
  */
 var shapesLoaded = new Array();
 var selectionObject = new Array();
+var nLabel = 15;  // the number of label tasks for each user
+var nMatch = 20;  // the number of match tasks for each user
+
+var nCompleted = 0; // record the number of completed tasks for each user
+var labelTask_loc = 0;  // record the start location to search next label task
+var matchTask_loc = 0;  // // record the start location to search next match task
+
+// tables loaded from DB
+var shapeTable = new Array();
+var pairTable = new Array();
+var labelTable = new Array();
+var labelmapTable =new Array();
+
+// tabels sent to DB
+var labelResult = new Array();
+var shapeId = new Array();
 
 var createTable = function(tableName,x,y) {
     var t = "";
@@ -89,13 +105,13 @@ var loadShapeGraph = function( shapeDirName,t )
             var finePartLabel = $(meta[0]).find('value').text();
 
             // Debug
-            console.log( meshFilename );
+           // console.log( meshFilename );
 
             // Load mesh into viewer
             meshFilename = "data/" + shapeDirName + "/" + meshFilename;
-            console.log( meshFilename );
+            //console.log( meshFilename );
 
-            addPart(partName, meshFilename, partLabel, finePartLabel, t);
+            addPart(shapeDirName,partName, meshFilename, partLabel, finePartLabel, t);
         });
 
     },
@@ -112,4 +128,266 @@ var loadAllShapes = function( shapeNamesArray ) {
         loadShapeGraph(shapeNamesArray[i],t);
     }
 }
+var loadTable = function(){
 
+    $.ajax({
+        url: 'sql_library/getShape.php',
+        data: "",
+        dataType: 'json',
+        success:function(data1) {
+            shapeTable = data1;
+        },
+        error: function(err){
+            console.log(err);
+        }
+    });
+
+    $.ajax({
+        url: 'sql_library/getPair.php',
+        data: "",
+        dataType: 'json',
+        success:function(data2) {
+            pairTable = data2;
+        },
+        error: function(err){
+            console.log(err);
+        }
+    });
+
+    $.ajax({
+        url: 'sql_library/getLabel.php',
+        data: "",
+        dataType: 'json',
+        success:function(data3) {
+            labelTable = data3;
+        },
+        error: function(err){
+            console.log(err);
+        }
+    });
+
+    $.ajax({
+        url: 'sql_library/getLabelmap.php',
+        data: "",
+        dataType: 'json',
+        success:function(data4) {
+            labelmapTable = data4;
+        },
+        error: function(err){
+            console.log(err);
+        }
+    });
+
+}
+var actionToLabelBar = function(labelId){
+    $("#labelBar").click(function(event){
+
+        // Only df there are selected parts, do ...
+        if (typeof selectedPartsName[0] !== 'undefined' && selectedPartsName[0] !== null){
+            // save selected part names and the label id
+            var clicked = event.target;
+            var id = clicked.id.split("_");
+            var label_id = Number(id[1]);
+
+            for (var i = 0; i < selectedPartsName.length;i++){
+                // update labelResult
+                var update = 0;
+                for (var j = 0; j < labelResult.length;j++){
+                    if (labelResult[j][0] == selectedPartsName[i][1] ){
+                        labelResult[j][1] = label_id;
+                        update = 1;
+
+                        //Debug
+                        //console.log(j);
+                        //console.log(labelResult[j]);
+                    }
+                }
+                // insert new result
+                if (update == 0){
+                    labelResult.push([selectedPartsName[i][1],label_id]);
+
+                    //Debut
+                    //console.log(labelResult.length-1);
+                    //console.log(labelResult[labelResult.length-1]);
+                }
+            }
+            //console.log(labelResult);
+            // update selected parts' color
+            var index = labelId.indexOf(label_id);
+            var newColor = labelColors[index];
+            updatePartColor(newColor);
+            // empty selectedPartsName
+            selectedPartsName = [];
+
+
+        }
+
+    });
+}
+
+var loadLabel = function(classId) {
+     // load fixed label bars and initial labels of shape
+
+    //add label bars with label names in viewer, labelId is needed to label parts.
+    var labelId = new Array();
+    var labelName = new Array();
+
+    // no label
+    labelId.push(0);
+    labelName.push("no label");
+
+    for (var i = 0; i < labelTable.length; i++) {
+        var class_id = Number(labelTable[i][2]);
+        if (classId == class_id){
+            var name = labelTable[i][1];
+            var id = Number(labelTable[i][0]);
+            labelName.push(name)
+            labelId.push(id);
+        }
+    }
+
+    addLabelBar(labelId,labelName);
+    actionToLabelBar(labelId);
+
+    // load initial labels
+    addInitialLabel(classId,labelId,labelmapTable);
+}
+var loadLabelTask = function(){
+    // Select a shape to label
+    $.ajax({
+        url: 'sql_library/getLabeltask.php',
+        data: "",
+        dataType: 'json',
+        success:function(labeltaskTable)
+        {
+            // only if there are unfinished label tasks
+            var TotalLabelTask = 0;
+            var labelTask = 0;
+            for (var i = 0; i < labeltaskTable.length; i++)
+            {
+                labelTask = Number(labeltaskTable[i][1]);
+                TotalLabelTask = TotalLabelTask + labelTask;
+            }
+            if (TotalLabelTask == 0 )
+            {
+                alert("Labeling tasks have been finished!");
+            }
+            else
+            {
+                // search next label task from labelTask_loc
+                // previous task is on (labeltaskTable.length - 1)
+                if (labelTask_loc == labeltaskTable.length) {
+                    labelTask_loc = 0;
+                }
+                for (var i = labelTask_loc; i < labeltaskTable.length; i++) {
+                    labelTask = Number(labeltaskTable[i][1]);
+                    // next task is on/after labelTask_loc
+                    if (labelTask > 0) {
+                        shapeId = [];
+                        shapeId.push(Number(labeltaskTable[i][0]));
+                        var loc = shapeId[0]-1;
+                        var shapeName = shapeTable[loc][1];
+                        var classId = Number(shapeTable[loc][2]);
+                        labelTask_loc = i + 1;
+                        loadShapeGraph(shapeName,0);
+                        //loadLabel(classId);
+                        break;
+                    }
+                    // next task is before labelTask_loc
+                    if (labelTask_loc == labeltaskTable.length) {
+                        labelTask_loc = 0;
+                    }
+                }
+            }
+        },
+        error: function(err){
+            console.log(err);
+        }
+    });
+
+}
+var loadMatchTask = function(){
+    // Select a pair of shapes to match
+    $.ajax({
+        url: 'sql_library/getMatchtask.php',
+        data: "",
+        dataType: 'json',
+        success:function(matchtaskTable)
+        {
+            // only if there are unfinished match tasks
+            var TotalMatchTask = 0;
+            var matchTask = 0;
+            for (var i = 0; i < matchtaskTable.length; i++)
+            {
+                matchTask = Number(matchtaskTable[i][1]);
+                TotalMatchTask = TotalMatchTask + matchTask;
+            }
+            if (TotalMatchTask == 0 )
+            {
+                alert("Matching tasks have been finished!");
+            }
+            else
+            {
+                // search next match task from matchTask_loc
+                // previous task is on (matchtaskTable.length - 1)
+                if (matchTask_loc == matchtaskTable.length) {
+                    matchTask_loc = 0;
+                }
+                for (var i = matchTask_loc; i < matchtaskTable.length; i++) {
+                    matchTask = Number(matchtaskTable[i][1]);
+                    // next task is on/after matchTask_loc
+                    if (matchTask > 0) {
+                        var pair_id = matchtaskTable[i][0];
+                        shapeId = [];
+                        shapeId.push(Number(pairTable[pair_id][1]));
+                        shapeId.push(Number(pairTable[pair_id][2]));
+                        //var shapeName = shapeTable[i][1];
+                        matchTask_loc = i + 1;
+                        //loadShapeGraph(shapeName,0);
+                        break;
+                    }
+                    // next task is before matchTask_loc
+                    if (matchTask_loc == pairTable.length) {
+                        matchTask_loc = 0;
+                    }
+                }
+
+            }
+
+        },
+        error: function(err){
+            console.log(err);
+        }
+    });
+
+}
+var doNextTask = function(){
+
+    if (nCompleted < nLabel){
+        // send previous label result
+        sendLabelResult();
+
+        // clear the interface
+        clearInterface();
+
+        // load the next label task
+        loadLabelTask();
+    }
+    else if (nCompleted < nLabel + nMatch){
+        nCompleted = nCompleted + 1;
+        // send previous match result
+        // Todo
+
+        // clear the interface
+        clearInterface();
+
+        // load the next match task
+        loadMatchTask();
+
+    }
+    else{
+        alert("You have finished all tasks.");
+    }
+
+
+}

@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<document>
+<node>
+	<id>TopSheet</id>
+	<type>SHEET</type>
+	<mesh>meshes/Top.obj</mesh>
+
+	<controls>
+		<c>8</c>
+		<c>8</c>
+	</controls>
+
+	<point>-0.850409 -0.847674 1</point>
+	<point>-0.850409 -0.734651 1</point>
+	<point>-0.850409 -0.508604 1</point>
+	<point>-0.850409 -0.169535 1</point>
+	<point>-0.850409 0.169535 1</point>
+	<point>-0.850409 0.508604 1</point>
+	<point>-0.850409 0.734652 1</point>
+	<point>-0.850409 0.847674 1</point>
+	<point>-0.73702 -0.847674 1</point>
+	<point>-0.73702 -0.734651 1</point>
+	<point>-0.73702 -0.508604 1</point>
+	<point>-0.73702 -0.169535 1</point>
+	<point>-0.73702 0.169535 1</point>
+	<point>-0.73702 0.508604 1</point>
+	<point>-0.73702 0.734652 1</point>
+	<point>-0.73702 0.847674 1</point>
+	<point>-0.510245 -0.847674 1</point>
+	<point>-0.510245 -0.734651 1</point>
+	<point>-0.510245 -0.508604 1</point>
+	<point>-0.510245 -0.169535 1</point>
+	<point>-0.510245 0.169535 1</point>
+	<point>-0.510245 0.508604 1</point>
+	<point>-0.510245 0.734652 1</point>
+	<point>-0.510245 0.847674 1</point>
+	<point>-0.170082 -0.847674 1</point>
+	<point>-0.170082 -0.734651 1</point>
+	<point>-0.170082 -0.508604 1</point>
+	<point>-0.170082 -0.169535 1</point>
+	<point>-0.170082 0.169535 1</point>
+	<point>-0.170082 0.508604 1</point>
+	<point>-0.170082 0.734652 1</point>
+	<point>-0.170082 0.847674 1</point>
+	<point>0.170082 -0.847674 1</point>
+	<point>0.170082 -0.734651 1</point>
+	<point>0.170082 -0.508604 1</point>
+	<point>0.170082 -0.169535 1</point>
+	<point>0.170082 0.169535 1</point>
+	<point>0.170082 0.508604 1</point>
+	<point>0.170082 0.734652 1</point>
+	<point>0.170082 0.847674 1</point>
+	<point>0.510245 -0.847674 1</point>
+	<point>0.510245 -0.734651 1</point>
+	<point>0.510245 -0.508604 1</point>
+	<point>0.510245 -0.169535 1</point>
+	<point>0.510245 0.169535 1</point>
+	<point>0.510245 0.508604 1</point>
+	<point>0.510245 0.734652 1</point>
+	<point>0.510245 0.847674 1</point>
+	<point>0.737021 -0.847674 1</point>
+	<point>0.737021 -0.734651 1</point>
+	<point>0.737021 -0.508604 1</point>
+	<point>0.737021 -0.169535 1</point>
+	<point>0.737021 0.169535 1</point>
+	<point>0.737021 0.508604 1</point>
+	<point>0.737021 0.734652 1</point>
+	<point>0.737021 0.847674 1</point>
+	<point>0.850409 -0.847674 1</point>
+	<point>0.850409 -0.734651 1</point>
+	<point>0.850409 -0.508604 1</point>
+	<point>0.850409 -0.169535 1</point>
+	<point>0.850409 0.169535 1</point>
+	<point>0.850409 0.508604 1</point>
+	<point>0.850409 0.734652 1</point>
+	<point>0.850409 0.847674 1</point>
+
+	<weights>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 </weights>
+
+	<meta><key>label</key><value>table-top</value></meta>
+
+	<meta><key>parentLabel</key><value>table</value></meta>
+</node>
+
+<node>
+	<id>LeftFrontLeg</id>
+	<type>CURVE</type>
+	<mesh>meshes/LeftFrontLeg.obj</mesh>
+
+	<controls>
+		<c>8</c>
+	</controls>
+
+	<point>-0.65201 -0.65078 7.41807e-10</point>
+	<point>-0.652107 -0.65078 0.0620274</point>
+	<point>-0.652302 -0.65078 0.186082</point>
+	<point>-0.652596 -0.65078 0.372165</point>
+	<point>-0.652889 -0.65078 0.558246</point>
+	<point>-0.653182 -0.65078 0.744328</point>
+	<point>-0.653378 -0.65078 0.868383</point>
+	<point>-0.653475 -0.65078 0.93041</point>
+
+	<weights>1 1 1 1 1 1 1 1 </weights>
+
+	<meta><key>label</key><value>leg-front-left</value></meta>
+
+	<meta><key>parentLabel</key><value>leg</value></meta>
+</node>
+
+<node>
+	<id>LeftBackLeg</id>
+	<type>CURVE</type>
+	<mesh>meshes/LeftBackLeg.obj</mesh>
+
+	<controls>
+		<c>8</c>
+	</controls>
+
+	<point>-0.65201 0.654239 1.00742e-07</point>
+	<point>-0.652107 0.654239 0.0620274</point>
+	<point>-0.652302 0.654239 0.186082</point>
+	<point>-0.652596 0.654239 0.372165</point>
+	<point>-0.652889 0.654239 0.558246</point>
+	<point>-0.653182 0.654239 0.744328</point>
+	<point>-0.653377 0.654239 0.868383</point>
+	<point>-0.653475 0.654239 0.93041</point>
+
+	<weights>1 1 1 1 1 1 1 1 </weights>
+
+	<meta><key>label</key><value>leg-front-right</value></meta>
+
+	<meta><key>parentLabel</key><value>leg</value></meta>
+</node>
+
+<node>
+	<id>RightBackLeg</id>
+	<type>CURVE</type>
+	<mesh>meshes/RightBackLeg.obj</mesh>
+
+	<controls>
+		<c>8</c>
+	</controls>
+
+	<point>0.651862 0.654239 1.00742e-07</point>
+	<point>0.651764 0.654239 0.0620274</point>
+	<point>0.651569 0.654239 0.186082</point>
+	<point>0.651276 0.654239 0.372165</point>
+	<point>0.650983 0.654239 0.558246</point>
+	<point>0.650689 0.654239 0.744328</point>
+	<point>0.650494 0.654239 0.868383</point>
+	<point>0.650397 0.654239 0.93041</point>
+
+	<weights>1 1 1 1 1 1 1 1 </weights>
+
+	<meta><key>label</key><value>leg-back-right</value></meta>
+
+	<meta><key>parentLabel</key><value>leg</value></meta>
+</node>
+
+<node>
+	<id>RightFrontLeg</id>
+	<type>CURVE</type>
+	<mesh>meshes/RightFrontLeg.obj</mesh>
+
+	<controls>
+		<c>8</c>
+	</controls>
+
+	<point>0.651862 -0.65078 7.41807e-10</point>
+	<point>0.651764 -0.65078 0.0620274</point>
+	<point>0.651569 -0.65078 0.186082</point>
+	<point>0.651276 -0.65078 0.372165</point>
+	<point>0.650983 -0.65078 0.558246</point>
+	<point>0.650689 -0.65078 0.744328</point>
+	<point>0.650494 -0.65078 0.868383</point>
+	<point>0.650397 -0.65078 0.93041</point>
+
+	<weights>1 1 1 1 1 1 1 1 </weights>
+
+	<meta><key>label</key><value>leg-back-left</value></meta>
+
+	<meta><key>parentLabel</key><value>leg</value></meta>
+</node>
+
+<edge>
+	<id>TopSheet : LeftFrontLeg</id>
+	<type>POINT</type>
+
+	<n>TopSheet</n>
+	<n>LeftFrontLeg</n>
+	<coord>
+		<uv>0.113449 0.113624 0 0</uv>
+	</coord>
+	<coord>
+		<uv>1 0 0 0</uv>
+	</coord>
+</edge>
+
+<edge>
+	<id>TopSheet : LeftBackLeg</id>
+	<type>POINT</type>
+
+	<n>TopSheet</n>
+	<n>LeftBackLeg</n>
+	<coord>
+		<uv>0.113449 0.887396 0 0</uv>
+	</coord>
+	<coord>
+		<uv>1 0 0 0</uv>
+	</coord>
+</edge>
+
+<edge>
+	<id>TopSheet : RightBackLeg</id>
+	<type>POINT</type>
+
+	<n>TopSheet</n>
+	<n>RightBackLeg</n>
+	<coord>
+		<uv>0.885646 0.887396 0 0</uv>
+	</coord>
+	<coord>
+		<uv>1 0 0 0</uv>
+	</coord>
+</edge>
+
+<edge>
+	<id>TopSheet : RightFrontLeg</id>
+	<type>POINT</type>
+
+	<n>TopSheet</n>
+	<n>RightFrontLeg</n>
+	<coord>
+		<uv>0.885714 0.114286 0 0</uv>
+	</coord>
+	<coord>
+		<uv>1 0 0 0</uv>
+	</coord>
+</edge>
+
+<group>
+	<n>LeftFrontLeg</n>
+	<n>RightFrontLeg</n>
+</group>
+
+<group>
+	<n>RightBackLeg</n>
+	<n>LeftBackLeg</n>
+</group>
+
+
+</document>
