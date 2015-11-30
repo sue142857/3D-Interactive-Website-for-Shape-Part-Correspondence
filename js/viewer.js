@@ -9,7 +9,7 @@ var windowWidth = 512;
 var windowHeight = 512;
 
 var labelColors = ["#A9A9A9","#00FFFF","#0000FF","#FF00FF","#7FFF00","#D2691E","#006400","#FF69B4","#DC143C"];
-//var unlabelColor = "#A9A9A9";
+var matchColors = ["#00FFFF","#0000FF","#FF00FF","#7FFF00","#D2691E","#006400","#FF69B4","#DC143C"];
 var selectedPartsName = new Array();
 
 // Initialize the 3D viewer
@@ -344,4 +344,43 @@ function updatePartColor(newColor){
         }
     }
     render();
+}
+
+function loadInitialMatch(shapeName) {
+    // empty selectedPartsName and labelResult
+    selectedPartsName = [];
+    matchResult = [];
+
+    var finePartLabel = new Array();
+    var newColor = new Array();
+    var k = 0;
+
+    for (var i = 0; i < scene.children.length; i++) {
+        var part1 = scene.children[i];
+        // Only consider the 'meshes' of the scene
+        if ((part1 instanceof THREE.Mesh) && (part1.shapeName == shapeName[0])) {
+            var index = finePartLabel.indexOf(part1.finePartLabel);
+            if ( index == -1) {
+                finePartLabel.push([part1.finePartLabel]);
+                newColor.push(matchColors[k]);k = k+1;
+                index = finePartLabel.length -1;
+            }
+
+            for (var j = 0; j < scene.children.length; i++) {
+                var part2 = scene.children[j];
+                // Only consider the 'meshes' of the scene
+                if ((part2 instanceof THREE.Mesh) && (part2.shapeName == shapeName[1])) {
+
+                    if (part1.finePartLabel == part2.finePartLabel){
+                        matchResult.push([part1.partName, part2.partName,newColor[index]]);
+                        part1.material.color = new THREE.Color(newColor[index]);
+                        part2.material.color = new THREE.Color(newColor[index]);
+                    }
+
+                }
+            }
+        }
+    }
+    render();
+
 }
