@@ -6,14 +6,17 @@ var selectionObject = new Array();
 var nLabel = 15;  // the number of label tasks for each user
 var nMatch = 20;  // the number of match tasks for each user
 
-var nCompleted = 0; // record the number of completed tasks for each user
+var nCompleted = 15; // record the number of completed tasks for each user
 var labelTask_loc = 0;  // record the start location to search next label task
 var matchTask_loc = 0;  // // record the start location to search next match task
+var classId = 0;
+var shapeName = new Array();
 
 // tabels sent to DB
 var labelResult = new Array();
 var matchResult = new Array();
 var shapeId = new Array();
+var pair_id = 0;
 //$.ajaxSetup({async: false});
 
 var createTable = function(tableName,x,y) {
@@ -200,20 +203,6 @@ var loadLabel = function(classId) {
             addLabelBar(labelId,labelName);
             actionToLabelBar(labelId);
 
-            // load initial labels
-            $.ajax({
-                url: 'sql_library/getLabelmap.php',
-                data: "",
-                dataType: 'json',
-                success:function(labelmapTable)
-                {
-                    addInitialLabel(classId,labelId,labelmapTable);
-                },
-                error: function(err){
-                    console.log(err);
-                }
-            });
-
         },
         error: function(err){
             console.log(err);
@@ -221,6 +210,9 @@ var loadLabel = function(classId) {
     });
 }
 var loadLabelTask = function(){
+    // empty selectedPartsName and labelResult
+    selectedPartsName = [];
+    labelResult = [];
     // Select a shape to label
     $.ajax({
         url: 'sql_library/getLabeltask.php',
@@ -260,9 +252,9 @@ var loadLabelTask = function(){
                                     shapeId = [];
                                     shapeId.push(Number(labeltaskTable[i][0]));
                                     var loc = shapeId[0]-1;
-                                    var shapeName = new Array();
+                                    shapeName = [];
                                     shapeName = shapeTable[loc][1];
-                                    var classId = Number(shapeTable[loc][2]);
+                                    classId = Number(shapeTable[loc][2]);
                                     labelTask_loc = i + 1;
                                     break;
                                 }
@@ -286,78 +278,14 @@ var loadLabelTask = function(){
     });
 
 }
-var loadTwoShapes = function(shapeName){
-    var shapeFilename = new Array();
-    for (var i = 0;i<shapeName.length;i++){
-        shapeFilename[i] = "data/" + shapeName[i] + "/" + shapeName[i] + ".xml";
-    }
 
-    $.ajax({
-        type: "GET" ,
-        url: shapeFilename[0],
-        dataType: "xml" ,
-        success: function(xml1) {
-            //var xmlDoc = $.parseXML( xml );
-
-            $.ajax({
-                type: "GET" ,
-                url: shapeFilename[1],
-                dataType: "xml" ,
-                success: function(xml2) {
-                    //var xmlDoc = $.parseXML( xml );
-
-                    $(xml2).find('node').each(function() {
-                        var meshFilename = $(this).find('mesh').text();
-                        var partName = $(this).find('id').text();
-
-                        // Get labels
-                        var meta = $(this).find('meta');
-                        var partLabel = $(meta[1]).find('value').text();
-                        var finePartLabel = $(meta[0]).find('value').text();
-
-                        // Debug
-                        // console.log( meshFilename );
-
-                        // Load mesh into viewer
-                        meshFilename = "data/" + shapeName[1] + "/" + meshFilename;
-                        //console.log( meshFilename );
-
-                        addPart(shapeName[1],partName, meshFilename, partLabel, finePartLabel, 1.5);
-                    });
-                    $(xml1).find('node').each(function() {
-                        var meshFilename = $(this).find('mesh').text();
-                        var partName = $(this).find('id').text();
-
-                        // Get labels
-                        var meta = $(this).find('meta');
-                        var partLabel = $(meta[1]).find('value').text();
-                        var finePartLabel = $(meta[0]).find('value').text();
-
-                        // Debug
-                        // console.log( meshFilename );
-
-                        // Load mesh into viewer
-                        meshFilename = "data/" + shapeName[0] + "/" + meshFilename;
-                        //console.log( meshFilename );
-
-                        addPart(shapeName[0],partName, meshFilename, partLabel, finePartLabel, -1.5);
-                    });
-                    loadInitialMatch(shapeName);
-
-                },
-                error: function(err){
-                    console.log(err);
-                }
-            });
-
-        },
-        error: function(err){
-            console.log(err);
-        }
-    });
-}
 var loadMatchTask = function(){
     // Select a pair of shapes to match
+    selectedPartsName = [];
+    matchResult = [];
+    AllFinePartLabel = [];
+    addedParts = [];
+
     $.ajax({
         url: 'sql_library/getMatchtask.php',
         data: "",
@@ -387,12 +315,12 @@ var loadMatchTask = function(){
                     matchTask = Number(matchtaskTable[i][1]);
                     // next task is on/after matchTask_loc
                     if (matchTask > 0) {
-                        var pair_id = matchtaskTable[i][0];
+                        pair_id = matchtaskTable[i][0];
                         matchTask_loc = i + 1;
                         break;
                     }
                     // next task is before matchTask_loc
-                    if (matchTask_loc == pairTable.length) {
+                    if (matchTask_loc == matchtaskTable.length) {
                         matchTask_loc = 0;
                     }
                 }
@@ -409,13 +337,15 @@ var loadMatchTask = function(){
                                 success:function(pairTable)
                                 {
                                     shapeId = [];
-                                    shapeId.push(Number(pairTable[pair_id-1][1]));
-                                    shapeId.push(Number(pairTable[pair_id-1][2]));
-                                    var shapeName = [];
-                                    shapeName.push(shapeTable[shapeId[0]-1][1]);
-                                    shapeName.push(shapeTable[shapeId[1]-1][1]);
+                                    var loc = pair_id-1;
+                                    shapeId.push(Number(pairTable[loc][1]));
+                                    shapeId.push(Number(pairTable[loc][2]));
+                                    shapeName = [];
+                                    var loc1 = shapeId[0]-1;
+                                    var loc2 = shapeId[1]-1;
+                                    shapeName.push(shapeTable[loc1][1]);
+                                    shapeName.push(shapeTable[loc2][1]);
                                     loadAllShapes(shapeName);
-                                    //loadInitialMatch(shapeName);
                                 },
                                 error: function(err){
                                     console.log(err);
@@ -439,29 +369,28 @@ var loadMatchTask = function(){
 var doNextTask = function(){
 
     if (nCompleted < nLabel){
-        // send previous label result
         sendLabelResult();
-
-        // clear the interface
-        clearInterface();
-
-        // load the next label task
-        loadLabelTask();
+        nCompleted = nCompleted +1;
     }
     else if (nCompleted < nLabel + nMatch){
-        nCompleted = nCompleted + 1;
-        // send previous match result
-        // Todo
-
-        // clear the interface
-        clearInterface();
-
-        // load the next match task
-        loadMatchTask();
+        sendMatchResult();
+        nCompleted = nCompleted +1;
     }
     else{
         alert("You have finished all tasks.");
     }
 
 
+    if (nCompleted < nLabel){
+        // clear the interface
+        clearInterface();
+        // load the next label task
+        loadLabelTask();
+    }
+    else if (nCompleted < nLabel + nMatch){
+        // clear the interface
+        clearInterface();
+        // load the next match task
+        loadMatchTask();
+    }
 }

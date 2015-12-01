@@ -14,6 +14,7 @@ include "sql_library/db.php";
     <script src="js/sendResults.js"></script>
     <script src="js/viewer.js"></script>
     <script src="js/sendLabelResult.js"></script>
+    <script src="js/sendMatchResult.js"></script>
     <link rel="stylesheet" type="text/css" href="style/style.css">
 </head>
 <body>

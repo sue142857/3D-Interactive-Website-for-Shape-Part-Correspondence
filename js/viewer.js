@@ -8,8 +8,12 @@ var raycaster, mouse;
 var windowWidth = 512;
 var windowHeight = 512;
 
-var labelColors = ["#A9A9A9","#00FFFF","#0000FF","#FF00FF","#7FFF00","#D2691E","#006400","#FF69B4","#DC143C"];
-var matchColors = ["#00FFFF","#0000FF","#FF00FF","#7FFF00","#D2691E","#006400","#FF69B4","#DC143C"];
+//var labelColors = ["#A9A9A9","#0000FF","#00FFFF","#FF00FF","#7FFF00","#D2691E","#006400","#FF69B4","#DC143C"];
+//var matchColors = ["#0000FF","#00FFFF","#FF00FF","#7FFF00","#D2691E","#006400","#FF69B4","#DC143C","#FF4500",];
+var labelColors = ["#A9A9A9","#0000FF","#006400","#00BFFF","#32CD32","#663399","#9400D3","#9ACD32","#FF4500"];
+var matchColors = ["#000080","#0000FF","#006400","#008B8B","#00BFFF","#00FF00","#228B22","#32CD32","#4B0082","#663399","#6A5ACD","#7B68EE","#9400D3","#9ACD32","#FF4500","#CD853F","#DC143C","#FF4500","#FFFF00"];
+var AllFinePartLabel = new Array();
+var addedParts = new Array();
 var selectedPartsName = new Array();
 
 // Initialize the 3D viewer
@@ -160,30 +164,105 @@ function init() {
                 } else {
                     //console.log(clicks);
                     clearTimeout(timer);    //prevent single-click action
-                    alert("Double Click");  //perform double-click action
                     clicks = 0;             //after action performed, reset counter
+                    alert("Double Click");  //perform double-click action
 
-                    // Only df there are selected parts, do ...
-                    if (typeof selectedPartsName[0] !== 'undefined' && selectedPartsName[0] !== null){
+                    if(shapeName.length == 2){
+                        // Only df there are selected parts, do ...
+                        if (typeof selectedPartsName[0] !== 'undefined' && selectedPartsName[0] !== null){
 
-                        // remove the results of selected parts from labelResult
-                        for (var i = 0; i < selectedPartsName.length;i++){
-                            for (var j = 0; j < labelResult.length;j++){
-                                if (labelResult[j][0] == selectedPartsName[i][1] ){
-                                    //console.log(j);
-                                    //console.log(labelResult[j]);
-                                    //console.log(labelResult[j+1]);
-                                    labelResult.splice(j,1);
-                                    //Debug
-                                    //console.log(labelResult[j]);
+                            var allMatched1 = new Array();  // on shape1
+                            var allMatched2 = new Array();  // on shape2
+
+                            // delete previous match result of selected parts
+                            for (var i = 0; i<selectedPartsName.length;i++){
+                                var selected = selectedPartsName[i];
+                                var matched1 = new Array();  // on shape1
+                                var matched2 = new Array();  // on shape2
+                                for (var j=0;j<matchResult.length;j++){
+                                    if (selected[0] == shapeName[0] && selected[1]== matchResult[j][0]){
+                                        matched2.push(matchResult[j][1]);
+                                        allMatched2.push(matchResult[j][1]);
+                                    }
+                                    if (selected[0] == shapeName[1] && selected[1]== matchResult[j][1]){
+                                        matched1.push(matchResult[j][0]);
+                                        allMatched1.push(matchResult[j][0]);
+                                    }
+                                }
+                                j = 0;
+                                do {
+                                    if (selected[0] == shapeName[0]){
+                                        var name = matchResult[j][1];
+                                        var index = matched2.indexOf(name);
+                                        if (index !=-1){
+                                            matched1.push(matchResult[j][0]);
+                                            allMatched1.push(matchResult[j][0]);
+                                            matchResult.splice(j,1);
+                                        }
+                                    }
+                                    if (selected[0] == shapeName[1]){
+                                        var name = matchResult[j][0];
+                                        var index = matched1.indexOf(name);
+                                        if (index !=-1){
+                                            matched2.push(matchResult[j][1]);
+                                            allMatched2.push(matchResult[j][1]);
+                                            matchResult.splice(j,1);
+                                        }
+                                    }
+                                    if (index == -1 ) {j = j+1}
+                                }
+                                while(j<matchResult.length);
+                            }
+
+                            //add new match result
+                            for (var i = 0; i<selectedPartsName.length;i++){
+                                var part1 = selectedPartsName[i];
+                                for (var j = i+1; j<selectedPartsName.length;j++){
+                                    var part2 = selectedPartsName[j];
+                                    if ((part1[0] == shapeName[0]) && (part2[0] == shapeName[1])){
+                                        matchResult.push([part1[1],part2[1]])
+                                    }
+                                    if (part1[0] == shapeName[1] && part2[0] == shapeName[0]){
+                                        matchResult.push([part2[1],part1[0]])
+                                    }
                                 }
                             }
 
+                            //change part colors
+                            var usedColor = new Array();
+                            for (var i = 0; i < scene.children.length; i++) {
+                                var part = scene.children[i];
+
+                                // Only consider the 'meshes' of the scene
+                                if (part instanceof THREE.Mesh) {
+                                    var index1 = allMatched1.indexOf(part.partName);
+                                    var index2 = allMatched2.indexOf(part.partName);
+                                    if ((part.shapeName == shapeName[0]) && index1 != -1){
+                                        part.material.color = new THREE.Color(labelColors[0]);
+                                    }
+                                    else if ((part.shapeName == shapeName[1]) && index2 != -1){
+                                        part.material.color = new THREE.Color(labelColors[0]);
+                                    }
+                                    else {
+                                        var color = '#' + part.material.color.getHexString();
+                                        usedColor.push(color);
+                                    }
+                                }
+                            }
+                            render();
+
+                            for (var i = 0;i<matchColors.length;i++){
+                                var index = usedColor.indexOf(matchColors[i]);
+                                if (index == -1){
+                                    var newColor = matchColors[i];
+                                    break;
+                                }
+                            }
+                            updatePartColor(newColor);
+
+                            selectedPartsName = [];
+
                         }
-                        // update selected parts' color
-                        //updatePartColor(unlabelColor);
-                        // empty selectedPartsName
-                        selectedPartsName = [];
                     }
 
                 }
@@ -247,14 +326,95 @@ function addPart(shapeDirName,partName, meshFilename, partLabel, finePartLabel, 
         mesh.partLabel = partLabel;
         mesh.finePartLabel = finePartLabel;
 
-        // Add to 3D scene
-        scene.add( mesh );
-        render();
+        // add initial labels for label tasks
+        if (nCompleted < nLabel) {
+            $.ajax({
+                url: 'sql_library/getLabelmap.php',
+                data: "",
+                dataType: 'json',
+                success:function(labelmapTable)
+                {
+                    $.ajax({
+                        url: 'sql_library/getLabel.php',
+                        data: "",
+                        dataType: 'json',
+                        success:function(labelTable)
+                        {
+                            var labelId = new Array();
+                            // no label
+                            labelId.push(0);
+
+                            for (var i = 0; i < labelTable.length; i++) {
+                                var class_id = Number(labelTable[i][2]);
+                                if (classId == class_id){
+                                    var id = Number(labelTable[i][0]);
+                                    labelId.push(id);
+                                }
+                            }
+                            for (var i = 0; i<labelmapTable.length;i++){
+                                var name = labelmapTable[i][1];
+                                var class_id = Number(labelmapTable[i][3]);
+                                if (classId == class_id && mesh.partLabel == name){
+                                    var map_label_id = Number(labelmapTable[i][2]);
+                                    var index = labelId.indexOf(map_label_id);
+                                    mesh.material.color = new THREE.Color(labelColors[index]);
+
+                                    //save the initial labels as label result
+                                    labelResult.push([mesh.partName,map_label_id]);
+                                }
+                            }
+
+                            // Add to 3D scene
+                            scene.add( mesh );
+                            render();
+                        },
+                        error: function(err){
+                            console.log(err);
+                        }
+                    });
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            });
+        }
+
+        // add initial fine match for match tasks
+        if (nCompleted > nLabel-1){
+            var index = AllFinePartLabel.indexOf(finePartLabel);
+            if (index == -1){
+                AllFinePartLabel.push(finePartLabel);
+                mesh.material.color = new THREE.Color(matchColors[AllFinePartLabel.length-1]);
+            }
+            else{
+                mesh.material.color = new THREE.Color(matchColors[index]);
+            }
+            // Add to 3D scene
+            scene.add( mesh );
+            render();
+
+            //save the initial matches as match result
+            for (var i = 0;i<addedParts.length;i++){
+                var mesh1 = addedParts[i];
+                if ((mesh1.shapeName != mesh.shapeName) && (mesh1.finePartLabel == mesh.finePartLabel)){
+                    if (mesh1.shapeName == shapeName[0]){
+                           matchResult.push([mesh1.partName,mesh.partName]);
+                    }
+                    else{
+                        matchResult.push([mesh.partName,mesh1.partName]);
+                    }
+                }
+            }
+            addedParts.push(mesh);
+        }
+
     });
 }
 function clearInterface() {
-    // remove label bars
-    $("#labelBar").remove();
+    //if (nCompleted < nLabel){
+        // remove label bars
+        $("#labelBar").remove();
+    //}
 
     // remove all parts in the scene
     // go over all parts in the scene
@@ -299,37 +459,6 @@ function addLabelBar(labelId,labelName)
 
 }
 
-function addInitialLabel(classId,labelId,labelmapTable) {
-    // add initial labels on the parts of the shape
-
-    // empty selectedPartsName and labelResult
-    selectedPartsName = [];
-    labelResult = [];
-    // go over all parts of the shape
-    for (var i = 0; i < scene.children.length; i++) {
-        var part = scene.children[i];
-
-        // Only consider the 'meshes' of the scene
-        if (part instanceof THREE.Mesh) {
-            // search for the mapping label id of its initial label
-            for (var j = 0; j<labelmapTable.length;j++){
-                var name = labelmapTable[j][1];
-                var class_id = Number(labelmapTable[j][3]);
-                if (classId == class_id && part.partLabel == name){
-                    var map_label_id = Number(labelmapTable[j][2]);
-                    var index = labelId.indexOf(map_label_id);
-                    part.material.color = new THREE.Color(labelColors[index]);
-
-                    //save the initial labels as label result
-                    labelResult.push([part.partName,map_label_id]);
-                }
-            }
-        }
-    }
-    //console.log(labelResult);
-    render();
-}
-
 function updatePartColor(newColor){
     for (var i = 0; i < scene.children.length; i++) {
         var part = scene.children[i];
@@ -344,43 +473,4 @@ function updatePartColor(newColor){
         }
     }
     render();
-}
-
-function loadInitialMatch(shapeName) {
-    // empty selectedPartsName and labelResult
-    selectedPartsName = [];
-    matchResult = [];
-
-    var finePartLabel = new Array();
-    var newColor = new Array();
-    var k = 0;
-
-    for (var i = 0; i < scene.children.length; i++) {
-        var part1 = scene.children[i];
-        // Only consider the 'meshes' of the scene
-        if ((part1 instanceof THREE.Mesh) && (part1.shapeName == shapeName[0])) {
-            var index = finePartLabel.indexOf(part1.finePartLabel);
-            if ( index == -1) {
-                finePartLabel.push([part1.finePartLabel]);
-                newColor.push(matchColors[k]);k = k+1;
-                index = finePartLabel.length -1;
-            }
-
-            for (var j = 0; j < scene.children.length; i++) {
-                var part2 = scene.children[j];
-                // Only consider the 'meshes' of the scene
-                if ((part2 instanceof THREE.Mesh) && (part2.shapeName == shapeName[1])) {
-
-                    if (part1.finePartLabel == part2.finePartLabel){
-                        matchResult.push([part1.partName, part2.partName,newColor[index]]);
-                        part1.material.color = new THREE.Color(newColor[index]);
-                        part2.material.color = new THREE.Color(newColor[index]);
-                    }
-
-                }
-            }
-        }
-    }
-    render();
-
 }

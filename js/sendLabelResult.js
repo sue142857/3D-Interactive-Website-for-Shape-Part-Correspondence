@@ -17,5 +17,4 @@ var sendLabelResult = function()
         });
 
     }
-    nCompleted = nCompleted + 1;
 }
