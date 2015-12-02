@@ -8,11 +8,12 @@ var raycaster, mouse;
 var windowWidth = 800;
 var windowHeight = 800;
 
-var labelColors = ["#a9a9a9","#0000ff","#006400","#00bfff","#32cd32","#663399","#9400d3","#9acd32","#ff4500"];
-var matchColors = ["#000080","#0000ff","#006400","#008b8b","#00bfff","#00ff00","#228b22","#32cd32","#4b0082","#663399","#6A5acd","#7b68ee","#9400d3","#9acd32","#ff4500","#cd853f","#dc143c","#ff4500","#ffff00"];
-
-//var labelColors = ["#A9A9A9","#0000FF","#006400","#00BFFF","#32CD32","#663399","#9400D3","#9ACD32","#FF4500"];
-//var matchColors = ["#000080","#0000FF","#006400","#008B8B","#00BFFF","#00FF00","#228B22","#32CD32","#4B0082","#663399","#6A5ACD","#7B68EE","#9400D3","#9ACD32","#FF4500","#CD853F","#DC143C","#FF4500","#FFFF00"];
+var labelColors = ["#a9a9a9","#0000ff","#228b22","#663399","#7cfc00","#d2691e","#c71585","#8a2be2","#ff4500"];
+var matchColors = ["#0000ff","#228b22","#663399","#7cfc00","#d2691e","#c71585","#ff4500","#8a2be2","#00bfff","#006400","#6a5acd",
+    "#9acd32","#a0522d","#da70d6","#ff6347","#8b008b","#1e90ff","#00ff00","#7b68ee","#adff2f","#b8860b","#dda0dd","#ffa07a","#9370db",
+    "#4169e1","#32cd32","#4b0082","#ffa500","#d2b48c","#f08080","#f4a460","#ba55d3","#000080","#00ff7f","#483d8b","#ffff00","#eee8aa",
+    "#cd5c5c","#ffb6c1","#800080"];
+var red = "#ff0000";
 var AllFinePartLabel = new Array();
 var addedParts = new Array();
 var selectedPartsName = new Array();
@@ -139,7 +140,7 @@ function init() {
                                 // change color (debug)
                                 var closePartIDX = intersections[0].idx;
                                 var selectedPart = scene.children[closePartIDX];
-                                selectedPart.material.color = new THREE.Color("#ff0000"); // red
+                                selectedPart.material.color = new THREE.Color(red);
 
                                 selectedPartsName.push([selectedPart.shapeName,selectedPart.partName]);
                             }
@@ -229,15 +230,14 @@ function init() {
                                     var index1 = allMatched1.indexOf(part.partName);
                                     var index2 = allMatched2.indexOf(part.partName);
                                     var c_color = '#' + part.material.color.getHexString();
-                                    var red = "#ff0000";
                                     if (c_color == red){
-                                        part.material.color = new THREE.Color(labelColors[0]);
+                                        part.material.color = new THREE.Color("#a9a9a9");  // "#a9a9a9" no color
                                     }
                                     else if ((part.shapeName == shapeName[0]) && index1 != -1){
-                                        part.material.color = new THREE.Color(labelColors[0]);
+                                        part.material.color = new THREE.Color("#a9a9a9");
                                     }
                                     else if ((part.shapeName == shapeName[1]) && index2 != -1){
-                                        part.material.color = new THREE.Color(labelColors[0]);
+                                        part.material.color = new THREE.Color("#a9a9a9");
                                     }
                                     else {
                                         var color = '#' + part.material.color.getHexString();

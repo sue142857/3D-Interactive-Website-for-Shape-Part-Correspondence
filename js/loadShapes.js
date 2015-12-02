@@ -19,71 +19,7 @@ var matchTask = 0;
 var labelTask = 0;
 var shapeId = new Array();
 var pair_id = 0;
-//$.ajaxSetup({async: false});
 
-var createTable = function(tableName,x,y) {
-    var t = "";
-    var uid = 0;
-
-    for (var i = 0; i < x; i++)
-    {
-        t += "<tr>\n";
-        for(var j = 0; j < y; j++)
-        {
-            t += "\t<td id='" + uid + "'></td>\n";
-            uid++;
-        }
-        t += "</tr>\n";
-    }
-
-    return "<table id='"+tableName+"'>" + t + "</table>";
-}
-
-var resetAllCells = function(tableName){
-    $("#" + tableName + " td").css("background","white");
-}
-
-var addActionsToTable = function(tableName)
-{
-    var table = $("#" + tableName);
-
-    // Add an action to all cells
-    table.on("click", "td", function() {
-        // Clear background of all cells
-        resetAllCells( tableName );
-
-        // Set the selection for the table to me (the td)
-        selectionObject[ tableName ] = $(this).attr("id");
-
-        // Change my background
-        $(this).css("background","blue");
-    });
-}
-
-var loadTheShapes = function(){
-    // Select the element with id = 'job'
-    var domObject = $("#job");
-
-    // debug
-    console.log( domObject );
-    console.log( domObject.text() );
-
-    var jobName = domObject.text();
-
-    var arrayShapes = jobName.split("_");
-
-    var shape1 = arrayShapes[0];
-    var shape2 = arrayShapes[1];
-
-    //$("#shapes").append( createTable(shape1,3,3) );
-    //$("#shapes").append( createTable(shape2,3,3) );
-
-    shapesLoaded.push(shape1);
-    shapesLoaded.push(shape2);
-
-    //addActionsToTable(shape1);
-    //addActionsToTable(shape2);
-}
 
 var loadShapeGraph = function( shapeDirName,t )
 {
