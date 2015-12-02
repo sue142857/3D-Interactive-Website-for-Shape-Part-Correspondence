@@ -6,7 +6,7 @@ var selectionObject = new Array();
 var nLabel = 15;  // the number of label tasks for each user
 var nMatch = 20;  // the number of match tasks for each user
 
-var nCompleted = 15; // record the number of completed tasks for each user
+var nCompleted = 0; // record the number of completed tasks for each user
 var labelTask_loc = 0;  // record the start location to search next label task
 var matchTask_loc = 0;  // // record the start location to search next match task
 var classId = 0;
@@ -15,6 +15,8 @@ var shapeName = new Array();
 // tabels sent to DB
 var labelResult = new Array();
 var matchResult = new Array();
+var matchTask = 0;
+var labelTask = 0;
 var shapeId = new Array();
 var pair_id = 0;
 //$.ajaxSetup({async: false});
@@ -222,7 +224,7 @@ var loadLabelTask = function(){
         {
             // only if there are unfinished label tasks
             var TotalLabelTask = 0;
-            var labelTask = 0;
+            //var labelTask = 0;
             for (var i = 0; i < labeltaskTable.length; i++)
             {
                 labelTask = Number(labeltaskTable[i][1]);
@@ -245,7 +247,8 @@ var loadLabelTask = function(){
                             if (labelTask_loc == labeltaskTable.length) {
                                 labelTask_loc = 0;
                             }
-                            for (var i = labelTask_loc; i < labeltaskTable.length; i++) {
+                            var i = labelTask_loc;
+                            do {
                                 labelTask = Number(labeltaskTable[i][1]);
                                 // next task is on/after labelTask_loc
                                 if (labelTask > 0) {
@@ -258,11 +261,13 @@ var loadLabelTask = function(){
                                     labelTask_loc = i + 1;
                                     break;
                                 }
+                                i = i+1;
                                 // next task is before labelTask_loc
-                                if (labelTask_loc == labeltaskTable.length) {
-                                    labelTask_loc = 0;
+                                if (i == labeltaskTable.length) {
+                                    i = 0;
                                 }
                             }
+                            while(i<labeltaskTable.length)
                             loadShapeGraph(shapeName,0);
                             loadLabel(classId);
                         },
@@ -294,7 +299,7 @@ var loadMatchTask = function(){
         {
             // only if there are unfinished match tasks
             var TotalMatchTask = 0;
-            var matchTask = 0;
+            //var matchTask = 0;
             for (var i = 0; i < matchtaskTable.length; i++)
             {
                 matchTask = Number(matchtaskTable[i][1]);
@@ -311,7 +316,8 @@ var loadMatchTask = function(){
                 if (matchTask_loc == matchtaskTable.length) {
                     matchTask_loc = 0;
                 }
-                for (var i = matchTask_loc; i < matchtaskTable.length; i++) {
+                var i = matchTask_loc;
+                do {
                     matchTask = Number(matchtaskTable[i][1]);
                     // next task is on/after matchTask_loc
                     if (matchTask > 0) {
@@ -319,11 +325,14 @@ var loadMatchTask = function(){
                         matchTask_loc = i + 1;
                         break;
                     }
+                    i = i+1;
                     // next task is before matchTask_loc
-                    if (matchTask_loc == matchtaskTable.length) {
-                        matchTask_loc = 0;
+                    if (i == matchtaskTable.length) {
+                        i = 0;
                     }
                 }
+                while(i<matchtaskTable.length)
+
                 $.ajax({
                         url: 'sql_library/getShape.php',
                         data: "",
@@ -370,10 +379,12 @@ var doNextTask = function(){
 
     if (nCompleted < nLabel){
         sendLabelResult();
+        updateLabelTask();
         nCompleted = nCompleted +1;
     }
     else if (nCompleted < nLabel + nMatch){
         sendMatchResult();
+        updateMatchTask();
         nCompleted = nCompleted +1;
     }
     else{

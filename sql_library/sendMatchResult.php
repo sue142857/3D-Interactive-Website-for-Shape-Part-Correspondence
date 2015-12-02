@@ -17,5 +17,3 @@ $q = "INSERT INTO matchresult (id, partName1, partName2, pair_id) VALUES (NULL, 
 
 // Execute to insert to DB
 $mysqli->query($q);
-
-

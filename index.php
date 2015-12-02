@@ -15,6 +15,7 @@ include "sql_library/db.php";
     <script src="js/viewer.js"></script>
     <script src="js/sendLabelResult.js"></script>
     <script src="js/sendMatchResult.js"></script>
+    <script src="js/updateTaskNumber.js"></script>
     <link rel="stylesheet" type="text/css" href="style/style.css">
 </head>
 <body>
@@ -37,7 +38,7 @@ include "sql_library/db.php";
 <button type="button" onclick="loadAllShapes(shapesLoaded)">Load Shape</button>
 
 <script>
-    loadMatchTask();
+    loadLabelTask();
 </script>
 
 <button type="button" onclick="doNextTask()">Save</button>

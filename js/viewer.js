@@ -5,13 +5,14 @@ var container, stats;
 var camera, controls, scene, renderer;
 var raycaster, mouse;
 
-var windowWidth = 512;
-var windowHeight = 512;
+var windowWidth = 800;
+var windowHeight = 800;
 
-//var labelColors = ["#A9A9A9","#0000FF","#00FFFF","#FF00FF","#7FFF00","#D2691E","#006400","#FF69B4","#DC143C"];
-//var matchColors = ["#0000FF","#00FFFF","#FF00FF","#7FFF00","#D2691E","#006400","#FF69B4","#DC143C","#FF4500",];
-var labelColors = ["#A9A9A9","#0000FF","#006400","#00BFFF","#32CD32","#663399","#9400D3","#9ACD32","#FF4500"];
-var matchColors = ["#000080","#0000FF","#006400","#008B8B","#00BFFF","#00FF00","#228B22","#32CD32","#4B0082","#663399","#6A5ACD","#7B68EE","#9400D3","#9ACD32","#FF4500","#CD853F","#DC143C","#FF4500","#FFFF00"];
+var labelColors = ["#a9a9a9","#0000ff","#006400","#00bfff","#32cd32","#663399","#9400d3","#9acd32","#ff4500"];
+var matchColors = ["#000080","#0000ff","#006400","#008b8b","#00bfff","#00ff00","#228b22","#32cd32","#4b0082","#663399","#6A5acd","#7b68ee","#9400d3","#9acd32","#ff4500","#cd853f","#dc143c","#ff4500","#ffff00"];
+
+//var labelColors = ["#A9A9A9","#0000FF","#006400","#00BFFF","#32CD32","#663399","#9400D3","#9ACD32","#FF4500"];
+//var matchColors = ["#000080","#0000FF","#006400","#008B8B","#00BFFF","#00FF00","#228B22","#32CD32","#4B0082","#663399","#6A5ACD","#7B68EE","#9400D3","#9ACD32","#FF4500","#CD853F","#DC143C","#FF4500","#FFFF00"];
 var AllFinePartLabel = new Array();
 var addedParts = new Array();
 var selectedPartsName = new Array();
@@ -138,20 +139,7 @@ function init() {
                                 // change color (debug)
                                 var closePartIDX = intersections[0].idx;
                                 var selectedPart = scene.children[closePartIDX];
-                                selectedPart.material.color = new THREE.Color(0xFF0000); // red
-
-                                //console.log( selectedPart.partName );
-                                //console.log( selectedPart.partLabel );
-                                //console.log( selectedPart.finePartLabel );
-
-
-                                //Todo
-                                // add red dots on selected parts
-                                //var sphereGeometry = new THREE.SphereGeometry( 200, 50, 50 );
-                                //var sphereMaterial = new THREE.MeshPhongMaterial( { color:0xff0000, transparent:true, opacity:1 } );
-                                //sphere = new THREE.Mesh( sphereGeometry, sphereMaterial );
-                                //sphere.position.set(0,30,0);
-                                //scene.add(sphere);
+                                selectedPart.material.color = new THREE.Color("#ff0000"); // red
 
                                 selectedPartsName.push([selectedPart.shapeName,selectedPart.partName]);
                             }
@@ -165,7 +153,7 @@ function init() {
                     //console.log(clicks);
                     clearTimeout(timer);    //prevent single-click action
                     clicks = 0;             //after action performed, reset counter
-                    alert("Double Click");  //perform double-click action
+                    //alert("Double Click");  //perform double-click action
 
                     if(shapeName.length == 2){
                         // Only df there are selected parts, do ...
@@ -215,15 +203,18 @@ function init() {
                             }
 
                             //add new match result
+                            var dblclickMode = 0; //0: delete, 1: add
                             for (var i = 0; i<selectedPartsName.length;i++){
                                 var part1 = selectedPartsName[i];
                                 for (var j = i+1; j<selectedPartsName.length;j++){
                                     var part2 = selectedPartsName[j];
                                     if ((part1[0] == shapeName[0]) && (part2[0] == shapeName[1])){
-                                        matchResult.push([part1[1],part2[1]])
+                                        matchResult.push([part1[1],part2[1]]);
+                                        dblclickMode = 1;
                                     }
                                     if (part1[0] == shapeName[1] && part2[0] == shapeName[0]){
-                                        matchResult.push([part2[1],part1[0]])
+                                        matchResult.push([part2[1],part1[1]]);
+                                        dblclickMode = 1;
                                     }
                                 }
                             }
@@ -237,7 +228,12 @@ function init() {
                                 if (part instanceof THREE.Mesh) {
                                     var index1 = allMatched1.indexOf(part.partName);
                                     var index2 = allMatched2.indexOf(part.partName);
-                                    if ((part.shapeName == shapeName[0]) && index1 != -1){
+                                    var c_color = '#' + part.material.color.getHexString();
+                                    var red = "#ff0000";
+                                    if (c_color == red){
+                                        part.material.color = new THREE.Color(labelColors[0]);
+                                    }
+                                    else if ((part.shapeName == shapeName[0]) && index1 != -1){
                                         part.material.color = new THREE.Color(labelColors[0]);
                                     }
                                     else if ((part.shapeName == shapeName[1]) && index2 != -1){
@@ -251,15 +247,17 @@ function init() {
                             }
                             render();
 
-                            for (var i = 0;i<matchColors.length;i++){
-                                var index = usedColor.indexOf(matchColors[i]);
-                                if (index == -1){
-                                    var newColor = matchColors[i];
-                                    break;
+                            if (dblclickMode == 1){
+                                for (var i = 0;i<matchColors.length;i++){
+                                    var index = usedColor.indexOf(matchColors[i]);
+                                    if (index == -1){
+                                        var newColor = matchColors[i];
+                                        break;
+                                    }
                                 }
-                            }
-                            updatePartColor(newColor);
+                                updatePartColor(newColor);
 
+                            }
                             selectedPartsName = [];
 
                         }
@@ -443,7 +441,7 @@ function addLabelBar(labelId,labelName)
     var str2 = "<div id=" + str1 + ">" + "</div>";
     $("#container").append(str2);
     $("#labelBar").parent().css({position: 'relative'});
-    $("#labelBar").css({top: 0, left: 512, position:'absolute'});
+    $("#labelBar").css({top: 0, left: 800, position:'absolute'});
 
     for (var i=0; i<labelId.length;i++) {
         // record labelId in "id"
