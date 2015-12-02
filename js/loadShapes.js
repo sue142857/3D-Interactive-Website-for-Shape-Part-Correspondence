@@ -1,8 +1,6 @@
 /**
  * Created by sla278 on 11/17/2015.
  */
-var shapesLoaded = new Array();
-var selectionObject = new Array();
 var nLabel = 15;  // the number of label tasks for each user
 var nMatch = 20;  // the number of match tasks for each user
 
@@ -41,12 +39,8 @@ var loadShapeGraph = function( shapeDirName,t )
             var partLabel = $(meta[1]).find('value').text();
             var finePartLabel = $(meta[0]).find('value').text();
 
-            // Debug
-           // console.log( meshFilename );
-
             // Load mesh into viewer
             meshFilename = "data/" + shapeDirName + "/" + meshFilename;
-            //console.log( meshFilename );
 
             addPart(shapeDirName,partName, meshFilename, partLabel, finePartLabel, t);
         });
@@ -61,7 +55,7 @@ var loadShapeGraph = function( shapeDirName,t )
 var loadAllShapes = function( shapeNamesArray ) {
     for (var i = 0; i < shapeNamesArray.length; i++)
     {
-        var t=4*i-2;
+        var t=4*i-2;  // translation
         loadShapeGraph(shapeNamesArray[i],t);
     }
 }
@@ -83,44 +77,33 @@ var actionToLabelBar = function(labelId){
                     if (labelResult[j][0] == selectedPartsName[i][1] ){
                         labelResult[j][1] = label_id;
                         update = 1;
-
-                        //Debug
-                        //console.log(j);
-                        //console.log(labelResult[j]);
                     }
                 }
-                // insert new result
+                // or insert new result
                 if (update == 0){
                     labelResult.push([selectedPartsName[i][1],label_id]);
-
-                    //Debut
-                    //console.log(labelResult.length-1);
-                    //console.log(labelResult[labelResult.length-1]);
                 }
             }
-            //console.log(labelResult);
             // update selected parts' color
             var index = labelId.indexOf(label_id);
             var newColor = labelColors[index];
             updatePartColor(newColor);
-            // empty selectedPartsName
+            // empty global variable selectedPartsName
             selectedPartsName = [];
-
-
         }
 
     });
 }
 
-var loadLabel = function(classId) {
-     // load fixed label bars and initial labels of shape
+var loadLabel = function() {
+     // load fixed label bars
     $.ajax({
         url: 'sql_library/getLabel.php',
         data: "",
         dataType: 'json',
         success:function(labelTable)
         {
-            //add label bars with label names in viewer, labelId is needed to label parts.
+            //add label bars with label names in viewer, labelId is needed to label action.
             var labelId = new Array();
             var labelName = new Array();
 
@@ -148,19 +131,18 @@ var loadLabel = function(classId) {
     });
 }
 var loadLabelTask = function(){
-    // empty selectedPartsName and labelResult
+    // empty global variables of previous selected parts and label result.
     selectedPartsName = [];
     labelResult = [];
-    // Select a shape to label
+    // select a shape to label based on the number of label tasks.
     $.ajax({
         url: 'sql_library/getLabeltask.php',
         data: "",
         dataType: 'json',
         success:function(labeltaskTable)
         {
-            // only if there are unfinished label tasks
+            // Only if there are unfinished label tasks
             var TotalLabelTask = 0;
-            //var labelTask = 0;
             for (var i = 0; i < labeltaskTable.length; i++)
             {
                 labelTask = Number(labeltaskTable[i][1]);
@@ -204,8 +186,10 @@ var loadLabelTask = function(){
                                 }
                             }
                             while(i<labeltaskTable.length)
+                            // load the shape and its initial labels
                             loadShapeGraph(shapeName,0);
-                            loadLabel(classId);
+                            // load fixed label bars
+                            loadLabel();
                         },
                     error: function(err){
                         console.log(err);
@@ -221,12 +205,13 @@ var loadLabelTask = function(){
 }
 
 var loadMatchTask = function(){
-    // Select a pair of shapes to match
+    // empty global variables of previous selected parts and match result.
     selectedPartsName = [];
     matchResult = [];
     AllFinePartLabel = [];
     addedParts = [];
 
+    // Select a pair of shapes to match based on the number of match tasks
     $.ajax({
         url: 'sql_library/getMatchtask.php',
         data: "",
@@ -235,7 +220,6 @@ var loadMatchTask = function(){
         {
             // only if there are unfinished match tasks
             var TotalMatchTask = 0;
-            //var matchTask = 0;
             for (var i = 0; i < matchtaskTable.length; i++)
             {
                 matchTask = Number(matchtaskTable[i][1]);
@@ -269,6 +253,7 @@ var loadMatchTask = function(){
                 }
                 while(i<matchtaskTable.length)
 
+                // load the shape pair and initial matches
                 $.ajax({
                         url: 'sql_library/getShape.php',
                         data: "",
@@ -315,11 +300,13 @@ var doNextTask = function(){
 
     if (nCompleted < nLabel){
         sendLabelResult();
+        // reduce the number of label tasks
         updateLabelTask();
         nCompleted = nCompleted +1;
     }
     else if (nCompleted < nLabel + nMatch){
         sendMatchResult();
+        // reduce the number of match tasks
         updateMatchTask();
         nCompleted = nCompleted +1;
     }
