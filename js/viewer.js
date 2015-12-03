@@ -5,8 +5,10 @@ var container, stats;
 var camera, controls, scene, renderer;
 var raycaster, mouse;
 
-var windowWidth = 800;
+var windowWidth = 1500;
 var windowHeight = 800;
+var barWidth = 100;
+var barHeight = 40;
 
 var labelColors = ["#a9a9a9","#0000ff","#228b22","#663399","#7cfc00","#d2691e","#c71585","#8a2be2","#ff4500"];
 var matchColors = ["#0000ff","#228b22","#663399","#7cfc00","#d2691e","#c71585","#ff4500","#8a2be2","#00bfff","#006400","#6a5acd",
@@ -26,7 +28,7 @@ function init() {
 
     controls = new THREE.TrackballControls( camera );
 
-    controls.rotateSpeed = 1.0;
+    controls.rotateSpeed = 5.0;
     controls.zoomSpeed = 1.2;
     controls.panSpeed = 0.8;
 
@@ -44,10 +46,17 @@ function init() {
     scene = new THREE.Scene();
 
     // Debug
-    var axisHelper = new THREE.AxisHelper( 0.5 );
-    scene.add( axisHelper );
+    //var axisHelper = new THREE.AxisHelper( 0.5 );
+    //scene.add( axisHelper );
 
     // lights
+    var light = new THREE.DirectionalLight( 0xffffff );
+    light.position.set( -1, -1, 1 );
+    scene.add( light );
+
+    light = new THREE.DirectionalLight( 0x222222 );
+    light.position.set( 1, 1, -1 );
+    scene.add( light );
 
     var light = new THREE.DirectionalLight( 0xffffff );
     light.position.set( 1, 1, 1 );
@@ -181,7 +190,7 @@ function init() {
                                     }
                                 }
                                 j = 0;
-                                do {
+                                while(j<matchResult.length){
                                     if (selected[0] == shapeName[0]){
                                         var name = matchResult[j][1];
                                         var index = matched2.indexOf(name);
@@ -202,7 +211,6 @@ function init() {
                                     }
                                     if (index == -1 ) {j = j+1}
                                 }
-                                while(j<matchResult.length);
                             }
 
                             //add new match result
@@ -420,6 +428,7 @@ function clearInterface() {
     //if (nCompleted < nLabel){
         // remove label bars
         $("#labelBar").remove();
+        $("#hint").remove();
     //}
 
     // remove all parts in the scene
@@ -449,7 +458,7 @@ function addLabelBar(labelId,labelName)
     var str2 = "<div id=" + str1 + ">" + "</div>";
     $("#container").append(str2);
     $("#labelBar").parent().css({position: 'relative'});
-    $("#labelBar").css({top: 0, left: 800, position:'absolute'});
+    $("#labelBar").css({top: windowHeight/3, left: windowWidth-barWidth, position:'absolute'});
 
     for (var i=0; i<labelId.length;i++) {
         // record labelId in "id"
@@ -459,10 +468,11 @@ function addLabelBar(labelId,labelName)
         $("#labelBar").append(str2);
         var str3 = "#" + str1;
         $(str3).css("background-color",labelColors[i]);
-        $(str3).css("height","20px");
-        $(str3).css("width","100px");
+        $(str3).css("height",barHeight+"px");
+        $(str3).css("width",barWidth+"px");
+        $(str3).css("text-align","center");
+        $(str3).css("font-size",barHeight/2+"px");
     }
-
 }
 
 function updatePartColor(newColor){
@@ -472,7 +482,7 @@ function updatePartColor(newColor){
         // Only consider the 'meshes' of the scene
         if (part instanceof THREE.Mesh) {
             for (var j = 0; j<selectedPartsName.length;j++){
-                if (part.partName == selectedPartsName[j][1]){
+                if ((part.shapeName == selectedPartsName[j][0]) && (part.partName == selectedPartsName[j][1])){
                     part.material.color = new THREE.Color(newColor);
                 }
             }
@@ -480,3 +490,44 @@ function updatePartColor(newColor){
     }
     render();
 }
+function addHint(){
+    // add hint
+    if (nCompleted < nLabel){
+        var str1 = "hint";
+        var str2 = "Please assign the coarse labels for the shape";
+        var str3 = "<div id=" + str1 + ">" + str2 + "</div>";
+        $("#container").append(str3);
+        $("#hint").parent().css({position: 'relative'});
+        $("#hint").css({top:0, left: 0, position:'absolute'});
+        $("#hint").css("font-size",barHeight+"px");
+    }
+    else if (nCompleted > nLabel-1){
+        var str1 = "hint";
+        var str2 = "Please match fine parts for the shape pair";
+        var str3 = "<div id=" + str1 + ">" + str2 + "</div>";
+        $("#container").append(str3);
+        $("#hint").parent().css({position: 'relative'});
+        $("#hint").css({top:0, left: 0, position:'absolute'});
+        $("#hint").css("font-size",barHeight+"px");
+    }
+}
+function addhelp(){
+    var str1 = "<div id=\"content\" class=\"panel\"> <p>Now you see me!</p> </div>";
+    var str2 = "<div id=\"help\" class=\"pull-me\">Help</div>";
+    $("#container").append(str1+str2);
+    $("#content").parent().css({position: 'relative'});
+    $("#content").css({top:barHeight, left: 0, position:'absolute'});
+    $("#content").css("font-size",barHeight/2+"px");
+    $("#help").parent().css({position: 'relative'});
+    $("#help").css({top:windowHeight-barHeight, left: windowWidth-barWidth, position:'absolute'});
+    $("#help").css("font-size",barHeight/2+"px");
+    $("#help").css("background-color","#a9a9a9");
+    $("#help").css("height",barHeight+"px");
+    $("#help").css("width",barWidth+"px");
+    $("#help").css("text-align","center");
+}
+$(document).ready(function() {
+    $('.pull-me').click(function() {
+        $('.panel').slideToggle('slow');
+    });
+});

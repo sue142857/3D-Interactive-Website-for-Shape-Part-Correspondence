@@ -190,6 +190,7 @@ var loadLabelTask = function(){
                             loadShapeGraph(shapeName,0);
                             // load fixed label bars
                             loadLabel();
+                            addHint();
                         },
                     error: function(err){
                         console.log(err);
@@ -276,6 +277,7 @@ var loadMatchTask = function(){
                                     shapeName.push(shapeTable[loc1][1]);
                                     shapeName.push(shapeTable[loc2][1]);
                                     loadAllShapes(shapeName);
+                                    addHint();
                                 },
                                 error: function(err){
                                     console.log(err);

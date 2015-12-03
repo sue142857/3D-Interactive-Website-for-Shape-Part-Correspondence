@@ -17,17 +17,18 @@ include "sql_library/db.php";
 </head>
 <body>
 
+<div id="container"></div>
+
+<script>
+    init();
+    animate();
+</script>
+
 <script>
     loadLabelTask();
 </script>
 
 <button type="button" onclick="doNextTask()">Save</button>
-
-<div id="container"></div>
-<script>
-    init();
-    animate();
-</script>
 
 </body>
 </html>
