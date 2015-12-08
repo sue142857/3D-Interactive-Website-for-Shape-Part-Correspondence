@@ -23,7 +23,7 @@ var selectedPartsName = new Array();
 // Initialize the 3D viewer
 function init() {
 
-    camera = new THREE.PerspectiveCamera( 60, windowWidth / windowHeight, 0.1, 1000 );
+    camera = new THREE.PerspectiveCamera( 50, windowWidth / windowHeight, 0.1, 1000 );
     camera.position.z = 6;
 
     controls = new THREE.TrackballControls( camera );
@@ -429,6 +429,7 @@ function clearInterface() {
         // remove label bars
         $("#labelBar").remove();
         $("#hint").remove();
+        $("#subhint").remove();
     //}
 
     // remove all parts in the scene
@@ -458,7 +459,7 @@ function addLabelBar(labelId,labelName)
     var str2 = "<div id=" + str1 + ">" + "</div>";
     $("#container").append(str2);
     $("#labelBar").parent().css({position: 'relative'});
-    $("#labelBar").css({top: windowHeight/3, left: windowWidth-barWidth, position:'absolute'});
+    $("#labelBar").css({top: windowHeight/5, left: 0, position:'absolute'});
 
     for (var i=0; i<labelId.length;i++) {
         // record labelId in "id"
@@ -470,6 +471,7 @@ function addLabelBar(labelId,labelName)
         $(str3).css("background-color",labelColors[i]);
         $(str3).css("height",barHeight+"px");
         $(str3).css("width",barWidth+"px");
+        $(str3).css("padding-top",barHeight/2+"px");
         $(str3).css("text-align","center");
         $(str3).css("font-size",barHeight/2+"px");
     }
@@ -490,25 +492,29 @@ function updatePartColor(newColor){
     }
     render();
 }
-function addHint(){
+function addHint(counter, total){
+    var progressText = "<span class='progressText'>(" + counter + "/" + total + ")</span>";
+
     // add hint
     if (nCompleted < nLabel){
         var str1 = "hint";
-        var str2 = "Please assign the coarse labels for the shape";
+        var str2 = "Please assign the coarse labels for this shape " + progressText;
         var str3 = "<div id=" + str1 + ">" + str2 + "</div>";
+        var str4 = "First select the parts on the shape, then click on the label.";
+        var str5 = "<div id='subhint'>" + str4 + "</div>";
         $("#container").append(str3);
+        $("#container").append(str5);
         $("#hint").parent().css({position: 'relative'});
-        $("#hint").css({top:0, left: 0, position:'absolute'});
-        $("#hint").css("font-size",barHeight+"px");
     }
     else if (nCompleted > nLabel-1){
         var str1 = "hint";
-        var str2 = "Please match fine parts for the shape pair";
+        var str2 = "Please match fine parts for the shape pair " + progressText;
         var str3 = "<div id=" + str1 + ">" + str2 + "</div>";
+        var str4 = "Select part from one shape, then a part from the other. Double click background to match. Parts can be left unmatched.";
+        var str5 = "<div id='subhint'>" + str4 + "</div>";
         $("#container").append(str3);
+        $("#container").append(str5);
         $("#hint").parent().css({position: 'relative'});
-        $("#hint").css({top:0, left: 0, position:'absolute'});
-        $("#hint").css("font-size",barHeight+"px");
     }
 }
 function addhelp(){

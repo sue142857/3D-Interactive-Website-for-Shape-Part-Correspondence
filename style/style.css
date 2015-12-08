@@ -1,11 +1,32 @@
+body{ font-family: sans-serif; }
+
 table{float:left; padding:2em; maring:2em}
 
 td{ border: 1px solid red; height: 20px;  width: 20px }
 
 button{
-    position: fixed;
-    top: 820px;
-    left:700px;
-    height: 30px;
-    width: 100px;
+    position: absolute;
+    top: 85%;
+    left: 85%;
+    font-size: 2em;
+    padding: 0.5em 0.8em 0.5em 0.8em;
+}
+
+
+#hint{
+	top: 0.2em;
+	left: 10px;
+	position: absolute;
+	font-size: 2em;
+}
+
+#subhint{
+	top: 2.75em;
+	left: 10px;
+	position: absolute;
+	font-size: 1em;
+}
+
+.progressText{
+	opacity: 0.4;
 }

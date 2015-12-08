@@ -9,6 +9,7 @@ var labelTask_loc = 0;  // record the start location to search next label task
 var matchTask_loc = 0;  // // record the start location to search next match task
 var classId = 0;
 var shapeName = new Array();
+var labelTask_counter = 0;
 
 // tabels sent to DB
 var labelResult = new Array();
@@ -17,7 +18,6 @@ var matchTask = 0;
 var labelTask = 0;
 var shapeId = new Array();
 var pair_id = 0;
-
 
 var loadShapeGraph = function( shapeDirName,t )
 {
@@ -141,6 +141,8 @@ var loadLabelTask = function(){
         dataType: 'json',
         success:function(labeltaskTable)
         {
+            labelTask_counter = labelTask_counter + 1;
+
             // Only if there are unfinished label tasks
             var TotalLabelTask = 0;
             for (var i = 0; i < labeltaskTable.length; i++)
@@ -190,7 +192,7 @@ var loadLabelTask = function(){
                             loadShapeGraph(shapeName,0);
                             // load fixed label bars
                             loadLabel();
-                            addHint();
+                            addHint(labelTask_counter, nLabel);
                         },
                     error: function(err){
                         console.log(err);
@@ -277,7 +279,7 @@ var loadMatchTask = function(){
                                     shapeName.push(shapeTable[loc1][1]);
                                     shapeName.push(shapeTable[loc2][1]);
                                     loadAllShapes(shapeName);
-                                    addHint();
+                                    addHint(matchTask_loc, nMatch);
                                 },
                                 error: function(err){
                                     console.log(err);
