@@ -50,13 +50,13 @@ function init() {
     //scene.add( axisHelper );
 
     // lights
-    var light = new THREE.DirectionalLight( 0xffffff );
-    light.position.set( -1, -1, 1 );
-    scene.add( light );
+    //var light = new THREE.DirectionalLight( 0xffffff );
+    //light.position.set( -1, -1, 1 );
+    //scene.add( light );
 
-    light = new THREE.DirectionalLight( 0x222222 );
-    light.position.set( 1, 1, -1 );
-    scene.add( light );
+    //light = new THREE.DirectionalLight( 0x222222 );
+    //light.position.set( 1, 1, -1 );
+    //scene.add( light );
 
     var light = new THREE.DirectionalLight( 0xffffff );
     light.position.set( 1, 1, 1 );
@@ -510,7 +510,7 @@ function addHint(counter, total){
         var str1 = "hint";
         var str2 = "Please match fine parts for the shape pair " + progressText;
         var str3 = "<div id=" + str1 + ">" + str2 + "</div>";
-        var str4 = "Select part from one shape, then a part from the other. Double click background to match. Parts can be left unmatched.";
+        var str4 = "Select parts from two shapes, then double click background to match. Or select parts on only one shape, then double click to leave them unmatched.";
         var str5 = "<div id='subhint'>" + str4 + "</div>";
         $("#container").append(str3);
         $("#container").append(str5);
