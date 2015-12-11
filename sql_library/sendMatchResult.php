@@ -11,9 +11,10 @@ include "db.php";
 $partName1 = $_GET['partName1'];
 $partName2 = $_GET['partName2'];
 $pair_id = $_GET['pair_id'];
+$username = $_GET['username'];
 
 // Build the insert query
-$q = "INSERT INTO matchresult (id, partName1, partName2, pair_id) VALUES (NULL, '$partName1','$partName2','$pair_id')";
+$q = "INSERT INTO matchresult (id, partName1, partName2, pair_id, username) VALUES (NULL, '$partName1','$partName2','$pair_id','$username')";
 
 // Execute to insert to DB
 $mysqli->query($q);

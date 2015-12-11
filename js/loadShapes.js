@@ -315,7 +315,8 @@ var doNextTask = function(){
         nCompleted = nCompleted +1;
     }
     else{
-        alert("You have finished all tasks.");
+        alert("You have finished all tasks. Thank you!");
+        window.location.href = 'http://www.acm.org';
     }
 
 

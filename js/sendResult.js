@@ -12,6 +12,7 @@ var sendLabelResult = function()
                 partName: labelResult[i][0],
                 labelId: labelResult[i][1],
                 shapeId: shapeId[0],
+                username: username,
             },
             type: 'get',
             success: function(output) {
@@ -30,6 +31,7 @@ var sendMatchResult = function()
                 partName1: matchResult[i][0],
                 partName2: matchResult[i][1],
                 pair_id: pair_id,
+                username: username,
             },
             type: 'get',
             success: function(output) {
@@ -45,6 +47,7 @@ var updateMatchTask = function(){
         data: {
             pair_id: pair_id,
             number: matchTask-1,
+            username: username,
         },
         type: 'get',
         success: function(output) {
@@ -58,6 +61,7 @@ var updateLabelTask = function(){
         data: {
             shape_id: shapeId[0],
             number: labelTask-1,
+            username: username,
         },
         type: 'get',
         success: function(output) {

@@ -10,7 +10,7 @@ var windowHeight = 800;
 var barWidth = 100;
 var barHeight = 40;
 
-var labelColors = ["#a9a9a9","#0000ff","#228b22","#663399","#7cfc00","#d2691e","#c71585","#8a2be2","#ff4500"];
+var labelColors = ["#a9a9a9","#3333ff","#228b22","#663399","#ff4500","#15C7C7","#d2691e","#8a2be2","#7cfc00"];
 var matchColors = ["#0000ff","#228b22","#663399","#7cfc00","#d2691e","#c71585","#ff4500","#8a2be2","#00bfff","#006400","#6a5acd",
     "#9acd32","#a0522d","#da70d6","#ff6347","#8b008b","#1e90ff","#00ff00","#7b68ee","#adff2f","#b8860b","#dda0dd","#ffa07a","#9370db",
     "#4169e1","#32cd32","#4b0082","#ffa500","#d2b48c","#f08080","#f4a460","#ba55d3","#000080","#00ff7f","#483d8b","#ffff00","#eee8aa",
@@ -19,6 +19,8 @@ var red = "#ff0000";
 var AllFinePartLabel = new Array();
 var addedParts = new Array();
 var selectedPartsName = new Array();
+
+var username = '';
 
 // Initialize the 3D viewer
 function init() {
@@ -64,6 +66,10 @@ function init() {
 
     light = new THREE.DirectionalLight( 0x222222 );
     light.position.set( -1, -1, -1 );
+    scene.add( light );
+
+    light = new THREE.DirectionalLight( 0xeeeeee );
+    light.position.set( -1, -1, 0 );
     scene.add( light );
 
     light = new THREE.AmbientLight( 0x222222 );
@@ -286,6 +292,9 @@ function init() {
     });
     //
     render();
+
+    // Save username
+    username = $("#username").val();
 }
 
 function onWindowResize() {

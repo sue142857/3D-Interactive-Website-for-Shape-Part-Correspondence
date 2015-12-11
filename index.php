@@ -1,35 +1,78 @@
-<?php
-// Connect to the Database
-include "sql_library/db.php";
-?>
+
+<!DOCTYPE html>
 
 <html>
 <head>
-    <title> Dr Topo </title>
-    <script src="js/jquery-2.1.4.min.js"></script>
-    <script src="js/three.js"></script>
-    <script src="js/TrackballControls.js"></script>
-    <script src="js/OBJLoader.js"></script>
-    <script src="js/loadShapes.js"></script>
-    <script src="js/viewer.js"></script>
-    <script src="js/sendResult.js"></script>
-    <link rel="stylesheet" type="text/css" href="style/style.css">
+	<title data-i18n>User study</title>
+
+	<style>
+		body{ font-family: sans-serif; padding: 0.25em; }
+		p{ padding:0.25em; width:800px; }
+		#header{
+
+		}
+		#content{
+
+		}
+		#footer{
+
+		}
+		#instructions{
+
+		}
+		#instruction-video{
+			border: 3px solid gray;
+			width:420px;
+		}
+		#login{
+			width:420px;
+		}
+		#login button{
+			font-size: 1.25em;
+			float:right;
+		}
+		#login-username-caption{
+			padding-right: 1em;
+		}
+	</style>
 </head>
+
 <body>
 
-<div id="container"></div>
+	<div id='header'>
+		<h2>Welcome to our user study!</h2>
+	</div>
 
-<script>
-    init();
-    animate();
-</script>
+	<div id='content'>
+		<div id='instructions'>
+			<p>
+				In this study we are looking to study how humans correspond objects 
+				of the same class but that structurally can be very different.
+			</p>
+			<p>
+				You will be asked to correspond 15 pairs.
+			</p>
+			<p>
+				The following video shows an example of the type of tasks required:
+			</p>
+			<div id='instruction-video'>
+				<iframe width="420" height="315" src="https://www.youtube.com/embed/VqW2tWT5jEA" 
+					frameborder="0" allowfullscreen></iframe>
+			</div>
+			<p>
+				Please specify a username, then click on 'start' to begin.
+			</p>
+		</div>
+		<div id='login'>
+			<form id='login-form' action='userstudy.php'>
+				<span id='login-username-caption'> Username </span> <input type='text' name='username' value='user'/>
+				<span> </span> <button>Start ></button>
+			</form>	
+		</div>
+	</div>
 
-<script>
-    loadLabelTask();
-</script>
-
-<button type="button" onclick="doNextTask()">Save</button>
-
+	<div id='footer'>
+	</div>
 </body>
-</html>
 
+</html>
