@@ -46,14 +46,14 @@
 	<div id='content'>
 		<div id='instructions'>
 			<p>
-				In this study we are looking to study how humans correspond objects 
-				of the same class but that structurally can be very different.
+				In this study, we are looking to study how humans correspond objects, which are
+				from the same class but can be very structurally different.
 			</p>
 			<p>
-				You will be asked to correspond 15 pairs.
+				You will be asked to label 15 shapes and match 20 shape pairs.
 			</p>
 			<p>
-				The following video shows an example of the type of tasks required:
+				The following video shows an example of how to do label/match tasks:
 			</p>
 			<div id='instruction-video'>
 				<iframe width="420" height="315" src="https://www.youtube.com/embed/VqW2tWT5jEA" 
