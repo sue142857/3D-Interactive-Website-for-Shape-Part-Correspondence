@@ -56,8 +56,9 @@
 				The following video shows an example of how to do label/match tasks:
 			</p>
 			<div id='instruction-video'>
-				<iframe width="420" height="315" src="https://www.youtube.com/embed/VqW2tWT5jEA" 
-					frameborder="0" allowfullscreen></iframe>
+				<embed src="http://player.youku.com/player.php/sid/XMTQxMzY3MDI0MA==/v.swf"
+					   allowFullScreen="true" quality="high" width="420" height="315" align="middle"
+					   allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
 			</div>
 			<p>
 				Please specify a username, then click on 'start' to begin.
