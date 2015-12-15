@@ -22,7 +22,7 @@
 		}
 		#instruction-video{
 			border: 3px solid gray;
-			width:420px;
+			width:600px;
 		}
 		#login{
 			width:420px;
@@ -57,7 +57,7 @@
 			</p>
 			<div id='instruction-video'>
 				<embed src="http://player.youku.com/player.php/sid/XMTQxMzY3MDI0MA==/v.swf"
-					   allowFullScreen="true" quality="high" width="420" height="315" align="middle"
+					   allowFullScreen="true" quality="high" width="600" height="500" align="middle"
 					   allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
 			</div>
 			<p>
