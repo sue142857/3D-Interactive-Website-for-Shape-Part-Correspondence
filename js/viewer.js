@@ -22,8 +22,15 @@ var selectedPartsName = new Array();
 
 var username = '';
 
+// Loading 3D objects
+var manager;
+var loader;
+
 // Initialize the 3D viewer
 function init() {
+    
+    manager = new THREE.LoadingManager();
+    loader = new THREE.OBJLoader(manager);
 
     camera = new THREE.PerspectiveCamera( 50, windowWidth / windowHeight, 0.1, 1000 );
     camera.position.z = 6;
@@ -64,7 +71,7 @@ function init() {
     light.position.set( 1, 1, 1 );
     scene.add( light );
 
-    light = new THREE.DirectionalLight( 0x222222 );
+    light = new THREE.DirectionalLight( 0xeeeeee );
     light.position.set( -1, -1, -1 );
     scene.add( light );
 
@@ -77,7 +84,7 @@ function init() {
 
     // renderer
     renderer = new THREE.WebGLRenderer( { antialias: true } );
-    renderer.setClearColor( new THREE.Color("rgb(200, 200, 200)") );
+    renderer.setClearColor( new THREE.Color("rgb(220, 220, 220)") );
     renderer.setPixelRatio( window.devicePixelRatio );
     renderer.setSize( windowWidth, windowHeight );
 
@@ -318,9 +325,7 @@ function render() {
 }
 
 function addPart(shapeDirName,partName, meshFilename, partLabel, finePartLabel, t ) {
-    var manager = new THREE.LoadingManager();
 
-    var loader = new THREE.OBJLoader( manager );
     loader.load( meshFilename, function ( object ) {
         var geometry = object.children[ 0 ].geometry;
 
@@ -339,6 +344,8 @@ function addPart(shapeDirName,partName, meshFilename, partLabel, finePartLabel, 
 
         var material = new THREE.MeshPhongMaterial();
         var mesh = new THREE.Mesh( geometry, material );
+
+        material.side = THREE.DoubleSide;
 
         // Add part properties
         mesh.shapeName = shapeDirName;
@@ -388,6 +395,8 @@ function addPart(shapeDirName,partName, meshFilename, partLabel, finePartLabel, 
                             // Add to 3D scene
                             scene.add( mesh );
                             render();
+
+                            numLoadedParts++;
                         },
                         error: function(err){
                             console.log(err);

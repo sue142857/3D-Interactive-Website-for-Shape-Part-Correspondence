@@ -18,6 +18,23 @@ var matchTask = 0;
 var labelTask = 0;
 var shapeId = new Array();
 var pair_id = 0;
+var numLoadedParts = 0;
+
+// UI stuff
+var loadingScreen;
+function showLoadingScreen(){
+    if(loadingScreen == undefined){
+        $( "body" ).append( "<div id='loadingScreen'>Loading - Please wait...</div>" );
+        loadingScreen = $("#loadingScreen");
+    }
+
+    loadingScreen.show();
+}
+
+function hideLoadingScreen(){
+    if(loadingScreen != undefined)
+        loadingScreen.hide();
+}
 
 var loadShapeGraph = function( shapeDirName,t )
 {
@@ -29,6 +46,12 @@ var loadShapeGraph = function( shapeDirName,t )
     dataType: "xml" ,
     success: function(xml) {
         //var xmlDoc = $.parseXML( xml );
+        numLoadedParts = 0;
+
+        // Show loading shape screen
+        if (nCompleted < nLabel) showLoadingScreen();
+
+        var partsCount = $(xml).find('node').length;
 
         $(xml).find('node').each(function() {
             var meshFilename = $(this).find('mesh').text();
@@ -43,6 +66,13 @@ var loadShapeGraph = function( shapeDirName,t )
             meshFilename = "data/" + shapeDirName + "/" + meshFilename;
 
             addPart(shapeDirName,partName, meshFilename, partLabel, finePartLabel, t);
+        });
+
+
+        // Hide loading screen
+        $(document).ajaxStop(function () {
+            if(numLoadedParts == partsCount)
+                hideLoadingScreen();
         });
 
     },
