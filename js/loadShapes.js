@@ -9,16 +9,24 @@ var labelTask_loc = 0;  // record the start location to search next label task
 var matchTask_loc = 0;  // // record the start location to search next match task
 var classId = 0;
 var shapeName = new Array();
-var labelTask_counter = 0;
+var labelTask_counter = 0; // shown in hint
+var matchTask_counter = 0; // shown in hint
+var numLoadedParts = 0;
+var partsCount = 0;
 
-// tabels sent to DB
+//tables loaded from DB
+var shapeTable = new Array();
+var pairTable = new Array();
+var labelTable = new Array();
+var labelmapTable = new Array();
+
+// tables sent to DB
 var labelResult = new Array();
 var matchResult = new Array();
 var matchTask = 0;
 var labelTask = 0;
 var shapeId = new Array();
 var pair_id = 0;
-var numLoadedParts = 0;
 
 // UI stuff
 var loadingScreen;
@@ -36,6 +44,58 @@ function hideLoadingScreen(){
         loadingScreen.hide();
 }
 
+var loadTables = function(){
+    $.ajax({
+        url: 'sql_library/getShape.php',
+        data: "",
+        dataType: 'json',
+        success:function(data1)
+        {
+            shapeTable = data1;
+            $.ajax({
+                url: 'sql_library/getPair.php',
+                data: "",
+                dataType: 'json',
+                success:function(data2)
+                {
+                    pairTable = data2;
+                    $.ajax({
+                        url: 'sql_library/getLabel.php',
+                        data: "",
+                        dataType: 'json',
+                        success:function(data3)
+                        {
+                            labelTable = data3;
+                            $.ajax({
+                                url: 'sql_library/getLabelmap.php',
+                                data: "",
+                                dataType: 'json',
+                                success:function(data4)
+                                {
+                                    labelmapTable = data4;
+                                    loadLabelTask();
+                                },
+                                error: function(err){
+                                    console.log(err);
+                                }
+                            });
+                        },
+                        error: function(err){
+                            console.log(err);
+                        }
+                    });
+
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            });
+        },
+        error: function(err){
+            console.log(err);
+        }
+    });
+}
 var loadShapeGraph = function( shapeDirName,t )
 {
     var shapeFilename = "data/" + shapeDirName + "/" + shapeDirName + ".xml";
@@ -49,9 +109,10 @@ var loadShapeGraph = function( shapeDirName,t )
         numLoadedParts = 0;
 
         // Show loading shape screen
-        if (nCompleted < nLabel) showLoadingScreen();
+        //if (nCompleted < nLabel)
+        showLoadingScreen();
 
-        var partsCount = $(xml).find('node').length;
+        partsCount = $(xml).find('node').length;
 
         $(xml).find('node').each(function() {
             var meshFilename = $(this).find('mesh').text();
@@ -70,10 +131,10 @@ var loadShapeGraph = function( shapeDirName,t )
 
 
         // Hide loading screen
-        $(document).ajaxStop(function () {
-            if(numLoadedParts == partsCount)
-                hideLoadingScreen();
-        });
+        //$(document).ajaxStop(function () {
+        //    if(numLoadedParts == partsCount)
+        //        hideLoadingScreen();
+        //});
 
     },
     error: function(err){
@@ -127,38 +188,26 @@ var actionToLabelBar = function(labelId){
 
 var loadLabel = function() {
      // load fixed label bars
-    $.ajax({
-        url: 'sql_library/getLabel.php',
-        data: "",
-        dataType: 'json',
-        success:function(labelTable)
-        {
-            //add label bars with label names in viewer, labelId is needed to label action.
-            var labelId = new Array();
-            var labelName = new Array();
+    //add label bars with label names in viewer, labelId is needed to label action.
+    var labelId = new Array();
+    var labelName = new Array();
 
-            // no label
-            labelId.push(0);
-            labelName.push("no label");
+    // no label
+    labelId.push(0);
+    labelName.push("no label");
 
-            for (var i = 0; i < labelTable.length; i++) {
-                var class_id = Number(labelTable[i][2]);
-                if (classId == class_id){
-                    var name = labelTable[i][1];
-                    var id = Number(labelTable[i][0]);
-                    labelName.push(name)
-                    labelId.push(id);
-                }
-            }
-
-            addLabelBar(labelId,labelName);
-            actionToLabelBar(labelId);
-
-        },
-        error: function(err){
-            console.log(err);
+    for (var i = 0; i < labelTable.length; i++) {
+        var class_id = Number(labelTable[i][2]);
+        if (classId == class_id){
+            var name = labelTable[i][1];
+            var id = Number(labelTable[i][0]);
+            labelName.push(name)
+            labelId.push(id);
         }
-    });
+    }
+
+    addLabelBar(labelId,labelName);
+    actionToLabelBar(labelId);
 }
 var loadLabelTask = function(){
     // empty global variables of previous selected parts and label result.
@@ -186,48 +235,37 @@ var loadLabelTask = function(){
             }
             else
             {
-                $.ajax({
-                        url: 'sql_library/getShape.php',
-                        data: "",
-                        dataType: 'json',
-                        success:function(shapeTable)
-                        {
-                            // search next label task from labelTask_loc
-                            // previous task is on (labeltaskTable.length - 1)
-                            if (labelTask_loc == labeltaskTable.length) {
-                                labelTask_loc = 0;
-                            }
-                            var i = labelTask_loc;
-                            do {
-                                labelTask = Number(labeltaskTable[i][1]);
-                                // next task is on/after labelTask_loc
-                                if (labelTask > 0) {
-                                    shapeId = [];
-                                    shapeId.push(Number(labeltaskTable[i][0]));
-                                    var loc = shapeId[0]-1;
-                                    shapeName = [];
-                                    shapeName = shapeTable[loc][1];
-                                    classId = Number(shapeTable[loc][2]);
-                                    labelTask_loc = i + 1;
-                                    break;
-                                }
-                                i = i+1;
-                                // next task is before labelTask_loc
-                                if (i == labeltaskTable.length) {
-                                    i = 0;
-                                }
-                            }
-                            while(i<labeltaskTable.length)
-                            // load the shape and its initial labels
-                            loadShapeGraph(shapeName,0);
-                            // load fixed label bars
-                            loadLabel();
-                            addHint(labelTask_counter, nLabel);
-                        },
-                    error: function(err){
-                        console.log(err);
+                // search next label task from labelTask_loc
+                // previous task is on (labeltaskTable.length - 1)
+                if (labelTask_loc == labeltaskTable.length) {
+                    labelTask_loc = 0;
+                }
+                var i = labelTask_loc;
+                do {
+                    labelTask = Number(labeltaskTable[i][1]);
+                    // next task is on/after labelTask_loc
+                    if (labelTask > 0) {
+                        shapeId = [];
+                        shapeId.push(Number(labeltaskTable[i][0]));
+                        var loc = shapeId[0]-1;
+                        shapeName = [];
+                        shapeName = shapeTable[loc][1];
+                        classId = Number(shapeTable[loc][2]);
+                        labelTask_loc = i + 1;
+                        break;
                     }
-                });
+                    i = i+1;
+                    // next task is before labelTask_loc
+                    if (i == labeltaskTable.length) {
+                        i = 0;
+                    }
+                }
+                while(i<labeltaskTable.length)
+                // load the shape and its initial labels
+                loadShapeGraph(shapeName,0);
+                // load fixed label bars
+                loadLabel();
+                addHint(labelTask_counter, nLabel);
             }
         },
         error: function(err){
@@ -287,39 +325,18 @@ var loadMatchTask = function(){
                 while(i<matchtaskTable.length)
 
                 // load the shape pair and initial matches
-                $.ajax({
-                        url: 'sql_library/getShape.php',
-                        data: "",
-                        dataType: 'json',
-                        success:function(shapeTable)
-                        {
-                            $.ajax({
-                                url: 'sql_library/getPair.php',
-                                data: "",
-                                dataType: 'json',
-                                success:function(pairTable)
-                                {
-                                    shapeId = [];
-                                    var loc = pair_id-1;
-                                    shapeId.push(Number(pairTable[loc][1]));
-                                    shapeId.push(Number(pairTable[loc][2]));
-                                    shapeName = [];
-                                    var loc1 = shapeId[0]-1;
-                                    var loc2 = shapeId[1]-1;
-                                    shapeName.push(shapeTable[loc1][1]);
-                                    shapeName.push(shapeTable[loc2][1]);
-                                    loadAllShapes(shapeName);
-                                    addHint(matchTask_loc, nMatch);
-                                },
-                                error: function(err){
-                                    console.log(err);
-                                }
-                            });
-                        },
-                    error: function(err){
-                        console.log(err);
-                    }
-                });
+                matchTask_counter = matchTask_counter + 1;
+                shapeId = [];
+                var loc = pair_id-1;
+                shapeId.push(Number(pairTable[loc][1]));
+                shapeId.push(Number(pairTable[loc][2]));
+                shapeName = [];
+                var loc1 = shapeId[0]-1;
+                var loc2 = shapeId[1]-1;
+                shapeName.push(shapeTable[loc1][1]);
+                shapeName.push(shapeTable[loc2][1]);
+                loadAllShapes(shapeName);
+                addHint(matchTask_counter, nMatch);
 
             }
 

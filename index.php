@@ -53,7 +53,7 @@
 				You will be asked to label 15 shapes and match 20 shape pairs.
 			</p>
 			<p>
-				The following video shows an example of how to do label/match tasks:
+				The following video shows an example of how to do labeling/matching tasks:
 			</p>
 			<div id='instruction-video'>
 				<embed src="http://player.youku.com/player.php/sid/XMTQxMzY3MDI0MA==/v.swf"

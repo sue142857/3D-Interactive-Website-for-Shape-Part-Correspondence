@@ -31,7 +31,7 @@
 </script>
 
 <script>
-    loadLabelTask();
+    loadTables();
 </script>
 
 <button type="button" onclick="doNextTask()">Save</button>

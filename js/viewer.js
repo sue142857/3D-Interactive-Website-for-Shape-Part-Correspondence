@@ -116,61 +116,6 @@ function init() {
                         //alert("Single Click");  //perform single-click action
                         clicks = 0;             //after action performed, reset counter
 
-                        // Selecion
-                        raycaster = new THREE.Raycaster();
-                        mouse = new THREE.Vector2();
-                        mouse.x = ( event.offsetX / windowWidth ) * 2 - 1;
-                        mouse.y = - ( event.offsetY / windowHeight ) * 2 + 1;
-
-                        // Setup the ray
-                        raycaster.setFromCamera( mouse, camera );
-
-                        // Intersections
-                        var intersections = new Array();
-
-                        // go over all parts of the shape
-                        for(var i = 0; i < scene.children.length; i++)
-                        {
-                            var part = scene.children[i];
-
-                            // Only consider the 'meshes' of the scene
-                            if ( part instanceof THREE.Mesh )
-                            {
-                                // Test intersection
-                                var intersects = raycaster.intersectObject( part );
-
-                                if (intersects.length > 0) {
-                                    intersections.push({ distance : intersects[0].distance, idx : i });
-                                }
-                            }
-                        }
-
-                        // If there is an intersection
-                        if(intersections.length > 0)
-                        {
-                            // Sort the intersecting parts by distance
-                            var compareIntersection = function(a,b){
-                                if(a.distance < b.distance)
-                                    return -1;
-                                else if(a.distance > b.distance)
-                                    return 1;
-                                return 0;
-                            };
-                            intersections.sort(compareIntersection);
-
-                            // Select the closest part
-                            {
-                                // change color (debug)
-                                var closePartIDX = intersections[0].idx;
-                                var selectedPart = scene.children[closePartIDX];
-                                selectedPart.material.color = new THREE.Color(red);
-
-                                selectedPartsName.push([selectedPart.shapeName,selectedPart.partName]);
-                            }
-                        }
-
-                        render();
-
                     }, DELAY);
 
                 } else {  // doubel click is to match parts or delete matches on selected parts
@@ -179,8 +124,63 @@ function init() {
                     clicks = 0;             //after action performed, reset counter
                     //alert("Double Click");  //perform double-click action
 
-                    // Only if it is in match task
-                    if(shapeName.length == 2){
+                    // Selecion
+                    raycaster = new THREE.Raycaster();
+                    mouse = new THREE.Vector2();
+                    mouse.x = ( event.offsetX / windowWidth ) * 2 - 1;
+                    mouse.y = - ( event.offsetY / windowHeight ) * 2 + 1;
+
+                    // Setup the ray
+                    raycaster.setFromCamera( mouse, camera );
+
+                    // Intersections
+                    var intersections = new Array();
+
+                    // go over all parts of the shape
+                    for(var i = 0; i < scene.children.length; i++)
+                    {
+                        var part = scene.children[i];
+
+                        // Only consider the 'meshes' of the scene
+                        if ( part instanceof THREE.Mesh )
+                        {
+                            // Test intersection
+                            var intersects = raycaster.intersectObject( part );
+
+                            if (intersects.length > 0) {
+                                intersections.push({ distance : intersects[0].distance, idx : i });
+                            }
+                        }
+                    }
+
+                    // If there is an intersection
+                    if(intersections.length > 0)
+                    {
+                        // Sort the intersecting parts by distance
+                        var compareIntersection = function(a,b){
+                            if(a.distance < b.distance)
+                                return -1;
+                            else if(a.distance > b.distance)
+                                return 1;
+                            return 0;
+                        };
+                        intersections.sort(compareIntersection);
+
+                        // Select the closest part
+                        {
+                            // change color (debug)
+                            var closePartIDX = intersections[0].idx;
+                            var selectedPart = scene.children[closePartIDX];
+                            selectedPart.material.color = new THREE.Color(red);
+
+                            selectedPartsName.push([selectedPart.shapeName,selectedPart.partName]);
+                        }
+                    }
+
+                    render();
+
+                    // dbl on background and only if it is in match task
+                    if(intersections.length == 0 && shapeName.length == 2){
                         // Only df there are selected parts, do ...
                         if (typeof selectedPartsName[0] !== 'undefined' && selectedPartsName[0] !== null){
 
@@ -355,58 +355,34 @@ function addPart(shapeDirName,partName, meshFilename, partLabel, finePartLabel, 
 
         // add initial labels for label tasks
         if (nCompleted < nLabel) {
-            $.ajax({
-                url: 'sql_library/getLabelmap.php',
-                data: "",
-                dataType: 'json',
-                success:function(labelmapTable)
-                {
-                    $.ajax({
-                        url: 'sql_library/getLabel.php',
-                        data: "",
-                        dataType: 'json',
-                        success:function(labelTable)
-                        {
-                            // search the map label id of current part
-                            var labelId = new Array();
-                            // no label id is 0
-                            labelId.push(0);
+            // search the map label id of current part
+            var labelId = new Array();
+            // no label id is 0
+            labelId.push(0);
 
-                            for (var i = 0; i < labelTable.length; i++) {
-                                var class_id = Number(labelTable[i][2]);
-                                if (classId == class_id){
-                                    var id = Number(labelTable[i][0]);
-                                    labelId.push(id);
-                                }
-                            }
-                            for (var i = 0; i<labelmapTable.length;i++){
-                                var name = labelmapTable[i][1];
-                                var class_id = Number(labelmapTable[i][3]);
-                                if (classId == class_id && mesh.partLabel == name){
-                                    var map_label_id = Number(labelmapTable[i][2]);
-                                    var index = labelId.indexOf(map_label_id);
-                                    mesh.material.color = new THREE.Color(labelColors[index]);
-
-                                    //save the initial labels as label result
-                                    labelResult.push([mesh.partName,map_label_id]);
-                                }
-                            }
-
-                            // Add to 3D scene
-                            scene.add( mesh );
-                            render();
-
-                            numLoadedParts++;
-                        },
-                        error: function(err){
-                            console.log(err);
-                        }
-                    });
-                },
-                error: function(err){
-                    console.log(err);
+            for (var i = 0; i < labelTable.length; i++) {
+                var class_id = Number(labelTable[i][2]);
+                if (classId == class_id){
+                    var id = Number(labelTable[i][0]);
+                    labelId.push(id);
                 }
-            });
+            }
+            for (var i = 0; i<labelmapTable.length;i++){
+                var name = labelmapTable[i][1];
+                var class_id = Number(labelmapTable[i][3]);
+                if (classId == class_id && mesh.partLabel == name){
+                    var map_label_id = Number(labelmapTable[i][2]);
+                    var index = labelId.indexOf(map_label_id);
+                    mesh.material.color = new THREE.Color(labelColors[index]);
+
+                    //save the initial labels as label result
+                    labelResult.push([mesh.partName,map_label_id]);
+                }
+            }
+
+            // Add to 3D scene
+            scene.add( mesh );
+            render();
         }
 
         // add initial fine matches for match tasks
@@ -441,6 +417,8 @@ function addPart(shapeDirName,partName, meshFilename, partLabel, finePartLabel, 
         }
 
     });
+    numLoadedParts++;
+    if(numLoadedParts == partsCount) hideLoadingScreen();
 }
 function clearInterface() {
     //if (nCompleted < nLabel){
@@ -535,23 +513,3 @@ function addHint(counter, total){
         $("#hint").parent().css({position: 'relative'});
     }
 }
-function addhelp(){
-    var str1 = "<div id=\"content\" class=\"panel\"> <p>Now you see me!</p> </div>";
-    var str2 = "<div id=\"help\" class=\"pull-me\">Help</div>";
-    $("#container").append(str1+str2);
-    $("#content").parent().css({position: 'relative'});
-    $("#content").css({top:barHeight, left: 0, position:'absolute'});
-    $("#content").css("font-size",barHeight/2+"px");
-    $("#help").parent().css({position: 'relative'});
-    $("#help").css({top:windowHeight-barHeight, left: windowWidth-barWidth, position:'absolute'});
-    $("#help").css("font-size",barHeight/2+"px");
-    $("#help").css("background-color","#a9a9a9");
-    $("#help").css("height",barHeight+"px");
-    $("#help").css("width",barWidth+"px");
-    $("#help").css("text-align","center");
-}
-$(document).ready(function() {
-    $('.pull-me').click(function() {
-        $('.panel').slideToggle('slow');
-    });
-});
