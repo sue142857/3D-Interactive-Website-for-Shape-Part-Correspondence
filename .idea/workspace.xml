@@ -25,7 +25,7 @@
       <file leaf-file-name="userstudy.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/userstudy.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-24.75">
+            <state vertical-scroll-proportion="0.0">
               <caret line="33" column="17" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
               <folding />
             </state>
@@ -35,28 +35,28 @@
       <file leaf-file-name="loadShapes.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/loadShapes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.448276">
+            <state vertical-scroll-proportion="0.0">
               <caret line="70" column="19" selection-start-line="70" selection-start-column="19" selection-end-line="70" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="viewer.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="viewer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/viewer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.65346533">
+            <state vertical-scroll-proportion="0.0">
               <caret line="344" column="20" selection-start-line="344" selection-start-column="12" selection-end-line="344" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-19.444445">
-              <caret line="55" column="83" selection-start-line="55" selection-start-column="83" selection-end-line="55" selection-end-column="83" />
+            <state vertical-scroll-proportion="0.39139345">
+              <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -105,10 +105,10 @@
         <option value="$PROJECT_DIR$/js/sendResult.js" />
         <option value="$PROJECT_DIR$/style/style.css" />
         <option value="$PROJECT_DIR$/sql_library/db.php" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/userstudy.php" />
         <option value="$PROJECT_DIR$/js/loadShapes.js" />
         <option value="$PROJECT_DIR$/js/viewer.js" />
+        <option value="$PROJECT_DIR$/index.php" />
       </list>
     </option>
   </component>
@@ -152,8 +152,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -692,17 +692,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.444445">
-          <caret line="55" column="83" selection-start-line="55" selection-start-column="83" selection-end-line="55" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/userstudy.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-24.75">
+        <state vertical-scroll-proportion="0.0">
           <caret line="33" column="17" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
           <folding />
         </state>
@@ -710,7 +702,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/loadShapes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.448276">
+        <state vertical-scroll-proportion="0.0">
           <caret line="70" column="19" selection-start-line="70" selection-start-column="19" selection-end-line="70" selection-end-column="19" />
           <folding />
         </state>
@@ -718,8 +710,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/viewer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.65346533">
+        <state vertical-scroll-proportion="0.0">
           <caret line="344" column="20" selection-start-line="344" selection-start-column="12" selection-end-line="344" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39139345">
+          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
           <folding />
         </state>
       </provider>
