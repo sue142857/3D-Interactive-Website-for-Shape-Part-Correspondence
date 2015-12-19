@@ -31,7 +31,7 @@ var pair_id = 0;
 // UI stuff
 var loadingScreen;
 function showLoadingScreen(){
-    if(loadingScreen == undefined){
+    if(loadingScreen === undefined){
         $( "body" ).append( "<div id='loadingScreen'>Loading - Please wait...</div>" );
         loadingScreen = $("#loadingScreen");
     }
@@ -40,11 +40,13 @@ function showLoadingScreen(){
 }
 
 function hideLoadingScreen(){
-    if(loadingScreen != undefined)
+    if(loadingScreen !== undefined)
         loadingScreen.hide();
 }
 
 var loadTables = function(){
+    showLoadingScreen();
+    
     $.ajax({
         url: 'sql_library/getShape.php',
         data: "",
@@ -74,6 +76,8 @@ var loadTables = function(){
                                 {
                                     labelmapTable = data4;
                                     loadLabelTask();
+                                    
+                                    hideLoadingScreen();
                                 },
                                 error: function(err){
                                     console.log(err);

@@ -6,6 +6,8 @@
  */
 var sendLabelResult = function()
 {
+    showLoadingScreen();
+    
     for (var i = 0; i < labelResult.length;i++){
         $.ajax({ url: 'sql_library/sendLabelResult.php',
             data: {
@@ -17,6 +19,7 @@ var sendLabelResult = function()
             type: 'get',
             success: function(output) {
                 //alert("Save!");
+                hideLoadingScreen();
             }
         });
 
@@ -25,6 +28,8 @@ var sendLabelResult = function()
 
 var sendMatchResult = function()
 {
+    showLoadingScreen();
+    
     for (var i = 0; i < matchResult.length;i++){
         $.ajax({ url: 'sql_library/sendMatchResult.php',
             data: {
@@ -36,6 +41,7 @@ var sendMatchResult = function()
             type: 'get',
             success: function(output) {
                 //alert("Save!");
+                hideLoadingScreen();
             }
         });
 

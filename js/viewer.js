@@ -416,9 +416,9 @@ function addPart(shapeDirName,partName, meshFilename, partLabel, finePartLabel, 
             render();
         }
 
+        numLoadedParts++;
+        if(numLoadedParts >= partsCount - 1) hideLoadingScreen();
     });
-    numLoadedParts++;
-    if(numLoadedParts == partsCount) hideLoadingScreen();
 }
 function clearInterface() {
     //if (nCompleted < nLabel){
