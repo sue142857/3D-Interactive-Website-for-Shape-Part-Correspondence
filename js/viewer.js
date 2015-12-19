@@ -417,7 +417,8 @@ function addPart(shapeDirName,partName, meshFilename, partLabel, finePartLabel, 
         }
 
         numLoadedParts++;
-        if(numLoadedParts >= partsCount - 1) hideLoadingScreen();
+        if(numLoadedParts >= partsCount)
+            hideLoadingScreen();
     });
 }
 function clearInterface() {
@@ -496,7 +497,7 @@ function addHint(counter, total){
         var str1 = "hint";
         var str2 = "Please assign the coarse labels for this shape " + progressText;
         var str3 = "<div id=" + str1 + ">" + str2 + "</div>";
-        var str4 = "First select the parts on the shape, then click on the label.";
+        var str4 = "First double click on parts of the shape, then click on a label.";
         var str5 = "<div id='subhint'>" + str4 + "</div>";
         $("#container").append(str3);
         $("#container").append(str5);
@@ -506,7 +507,7 @@ function addHint(counter, total){
         var str1 = "hint";
         var str2 = "Please match fine parts for the shape pair " + progressText;
         var str3 = "<div id=" + str1 + ">" + str2 + "</div>";
-        var str4 = "Select parts from two shapes, then double click background to match. Or select parts on only one shape, then double click to leave them unmatched.";
+        var str4 = "Double click on parts from two shapes, then double click background to match. Or select parts on only one shape, then double click to leave them unmatched.";
         var str5 = "<div id='subhint'>" + str4 + "</div>";
         $("#container").append(str3);
         $("#container").append(str5);

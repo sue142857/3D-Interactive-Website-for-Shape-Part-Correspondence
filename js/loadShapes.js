@@ -77,7 +77,7 @@ var loadTables = function(){
                                     labelmapTable = data4;
                                     loadLabelTask();
                                     
-                                    hideLoadingScreen();
+                                    //hideLoadingScreen();
                                 },
                                 error: function(err){
                                     console.log(err);
@@ -114,7 +114,7 @@ var loadShapeGraph = function( shapeDirName,t )
 
         // Show loading shape screen
         //if (nCompleted < nLabel)
-        showLoadingScreen();
+        //showLoadingScreen();
 
         partsCount = $(xml).find('node').length;
 
@@ -214,6 +214,7 @@ var loadLabel = function() {
     actionToLabelBar(labelId);
 }
 var loadLabelTask = function(){
+    showLoadingScreen();
     // empty global variables of previous selected parts and label result.
     selectedPartsName = [];
     labelResult = [];
@@ -280,6 +281,7 @@ var loadLabelTask = function(){
 }
 
 var loadMatchTask = function(){
+    showLoadingScreen();
     // empty global variables of previous selected parts and match result.
     selectedPartsName = [];
     matchResult = [];

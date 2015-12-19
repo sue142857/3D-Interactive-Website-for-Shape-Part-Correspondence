@@ -7,45 +7,38 @@
 var sendLabelResult = function()
 {
     showLoadingScreen();
-    
-    for (var i = 0; i < labelResult.length;i++){
-        $.ajax({ url: 'sql_library/sendLabelResult.php',
-            data: {
-                partName: labelResult[i][0],
-                labelId: labelResult[i][1],
-                shapeId: shapeId[0],
-                username: username,
-            },
-            type: 'get',
-            success: function(output) {
-                //alert("Save!");
-                hideLoadingScreen();
-            }
-        });
 
-    }
+    $.ajax({ url: 'sql_library/sendLabelResult.php',
+        data: {
+            labelResult: labelResult,
+            shapeId: shapeId[0],
+            username: username,
+        },
+        type: 'get',
+        success: function(output) {
+            //alert("Save!");
+            hideLoadingScreen();
+        }
+    });
+
 }
 
 var sendMatchResult = function()
 {
     showLoadingScreen();
-    
-    for (var i = 0; i < matchResult.length;i++){
-        $.ajax({ url: 'sql_library/sendMatchResult.php',
-            data: {
-                partName1: matchResult[i][0],
-                partName2: matchResult[i][1],
-                pair_id: pair_id,
-                username: username,
-            },
-            type: 'get',
-            success: function(output) {
-                //alert("Save!");
-                hideLoadingScreen();
-            }
-        });
 
-    }
+    $.ajax({ url: 'sql_library/sendMatchResult.php',
+        data: {
+            matchResult: matchResult,
+            pair_id: pair_id,
+            username: username,
+        },
+        type: 'get',
+        success: function(output) {
+            //alert("Save!");
+            hideLoadingScreen();
+        }
+    });
 }
 
 var updateMatchTask = function(){
