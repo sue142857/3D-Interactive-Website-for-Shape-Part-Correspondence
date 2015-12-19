@@ -114,7 +114,7 @@ var loadShapeGraph = function( shapeDirName,t )
 
         // Show loading shape screen
         //if (nCompleted < nLabel)
-        //showLoadingScreen();
+        showLoadingScreen();
 
         partsCount = $(xml).find('node').length;
 
