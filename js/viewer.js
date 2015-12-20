@@ -10,7 +10,8 @@ var windowHeight = 800;
 var barWidth = 100;
 var barHeight = 40;
 
-var labelColors = ["#a9a9a9","#3333ff","#228b22","#663399","#ff4500","#15C7C7","#d2691e","#8a2be2","#7cfc00"];
+var noColor = "#ffffff";
+var labelColors = [noColor,"#3333ff","#228b22","#663399","#ff4500","#15C7C7","#d2691e","#8a2be2","#7cfc00"];
 var matchColors = ["#0000ff","#228b22","#663399","#7cfc00","#d2691e","#c71585","#ff4500","#8a2be2","#00bfff","#006400","#6a5acd",
     "#9acd32","#a0522d","#da70d6","#ff6347","#8b008b","#1e90ff","#00ff00","#7b68ee","#adff2f","#b8860b","#dda0dd","#ffa07a","#9370db",
     "#4169e1","#32cd32","#4b0082","#ffa500","#d2b48c","#f08080","#f4a460","#ba55d3","#000080","#00ff7f","#483d8b","#ffff00","#eee8aa",
@@ -254,13 +255,13 @@ function init() {
                                     var index2 = allMatched2.indexOf(part.partName);
                                     var c_color = '#' + part.material.color.getHexString();
                                     if (c_color == red){
-                                        part.material.color = new THREE.Color("#a9a9a9");  // "#a9a9a9" no color
+                                        part.material.color = new THREE.Color(noColor);
                                     }
                                     else if ((part.shapeName == shapeName[0]) && index1 != -1){
-                                        part.material.color = new THREE.Color("#a9a9a9");
+                                        part.material.color = new THREE.Color(noColor);
                                     }
                                     else if ((part.shapeName == shapeName[1]) && index2 != -1){
-                                        part.material.color = new THREE.Color("#a9a9a9");
+                                        part.material.color = new THREE.Color(noColor);
                                     }
                                     else {
                                         var color = '#' + part.material.color.getHexString();
@@ -346,6 +347,7 @@ function addPart(shapeDirName,partName, meshFilename, partLabel, finePartLabel, 
         var mesh = new THREE.Mesh( geometry, material );
 
         material.side = THREE.DoubleSide;
+        mesh.material.color = new THREE.Color(noColor);
 
         // Add part properties
         mesh.shapeName = shapeDirName;
