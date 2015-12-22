@@ -10,7 +10,7 @@ var windowHeight = 800;
 var barWidth = 100;
 var barHeight = 40;
 
-var noColor = "#ffffff";
+var noColor = "#a9a9a9";
 var labelColors = [noColor,"#3333ff","#228b22","#663399","#ff4500","#15C7C7","#d2691e","#8a2be2","#7cfc00"];
 var matchColors = ["#0000ff","#228b22","#663399","#7cfc00","#d2691e","#c71585","#ff4500","#8a2be2","#00bfff","#006400","#6a5acd",
     "#9acd32","#a0522d","#da70d6","#ff6347","#8b008b","#1e90ff","#00ff00","#7b68ee","#adff2f","#b8860b","#dda0dd","#ffa07a","#9370db",
