@@ -237,6 +237,7 @@ var loadLabelTask = function(){
             if (TotalLabelTask == 0 )
             {
                 alert("Labeling tasks have been finished!");
+                window.location.href = 'http://www.acm.org';
             }
             else
             {
@@ -305,6 +306,7 @@ var loadMatchTask = function(){
             if (TotalMatchTask == 0 )
             {
                 alert("Matching tasks have been finished!");
+                window.location.href = 'http://www.acm.org';
             }
             else
             {
@@ -357,32 +359,9 @@ var doNextTask = function(){
 
     if (nCompleted < nLabel){
         sendLabelResult();
-        // reduce the number of label tasks
-        updateLabelTask();
-        nCompleted = nCompleted +1;
     }
     else if (nCompleted < nLabel + nMatch){
         sendMatchResult();
-        // reduce the number of match tasks
-        updateMatchTask();
-        nCompleted = nCompleted +1;
-    }
-    else{
-        alert("You have finished all tasks. Thank you!");
-        window.location.href = 'http://www.acm.org';
     }
 
-
-    if (nCompleted < nLabel){
-        // clear the interface
-        clearInterface();
-        // load the next label task
-        loadLabelTask();
-    }
-    else if (nCompleted < nLabel + nMatch){
-        // clear the interface
-        clearInterface();
-        // load the next match task
-        loadMatchTask();
-    }
 }

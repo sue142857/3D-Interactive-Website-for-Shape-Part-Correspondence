@@ -22,21 +22,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="userstudy.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="userstudy.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/userstudy.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.361111">
-              <caret line="21" column="6" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
+            <state vertical-scroll-proportion="0.33264887">
+              <caret line="15" column="26" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="viewer.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="viewer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/viewer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.28585178">
-              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+            <state vertical-scroll-proportion="-8.793103">
+              <caret line="430" column="16" selection-start-line="430" selection-start-column="16" selection-end-line="430" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="loadShapes.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/loadShapes.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-13.413794">
+              <caret line="350" column="10" selection-start-line="350" selection-start-column="10" selection-end-line="350" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sendResult.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/sendResult.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="95" column="9" selection-start-line="95" selection-start-column="9" selection-end-line="95" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -85,10 +105,10 @@
         <option value="$PROJECT_DIR$/sql_library/sendLabelResult.php" />
         <option value="$PROJECT_DIR$/sql_library/sendMatchResult.php" />
         <option value="$PROJECT_DIR$/style/style.css" />
-        <option value="$PROJECT_DIR$/js/sendResult.js" />
-        <option value="$PROJECT_DIR$/js/loadShapes.js" />
         <option value="$PROJECT_DIR$/sql_library/db.php" />
         <option value="$PROJECT_DIR$/js/viewer.js" />
+        <option value="$PROJECT_DIR$/js/sendResult.js" />
+        <option value="$PROJECT_DIR$/js/loadShapes.js" />
       </list>
     </option>
   </component>
@@ -132,6 +152,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -194,8 +216,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -260,8 +280,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1936" height="1176" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13489583" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -595,13 +615,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sql_library/updateLabelTask.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.5">
-          <caret line="11" column="7" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sql_library/updateMatchTask.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.75">
@@ -635,29 +648,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sql_library/sendLabelResult.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26919243">
-          <caret line="15" column="33" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="33" />
-          <folding>
-            <marker date="1450555233088" expanded="true" signature="284:366" placeholder="INSERT INTO labelresult..." />
-            <marker date="1450555233088" expanded="true" signature="284:377" placeholder="INSERT INTO labelresult..." />
-            <marker date="1450555233088" expanded="true" signature="284:410" placeholder="INSERT INTO labelresult..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/style/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="44" column="1" selection-start-line="44" selection-start-column="1" selection-end-line="44" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/sendResult.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -668,19 +662,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/loadShapes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.025986526">
-          <caret line="112" column="20" selection-start-line="112" selection-start-column="20" selection-end-line="112" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="63" column="57" selection-start-line="63" selection-start-column="57" selection-end-line="63" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -694,18 +679,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/userstudy.php">
+    <entry file="file://$PROJECT_DIR$/sql_library/updateLabelTask.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.361111">
-          <caret line="21" column="6" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
+        <state vertical-scroll-proportion="0.16151546">
+          <caret line="11" column="7" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sql_library/sendLabelResult.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43070787">
+          <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+          <folding>
+            <marker date="1450555233088" expanded="true" signature="284:366" placeholder="INSERT INTO labelresult..." />
+            <marker date="1450555233088" expanded="true" signature="284:377" placeholder="INSERT INTO labelresult..." />
+            <marker date="1450555233088" expanded="true" signature="284:410" placeholder="INSERT INTO labelresult..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/sendResult.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="95" column="9" selection-start-line="95" selection-start-column="9" selection-end-line="95" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/loadShapes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.413794">
+          <caret line="350" column="10" selection-start-line="350" selection-start-column="10" selection-end-line="350" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/viewer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28585178">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        <state vertical-scroll-proportion="-8.793103">
+          <caret line="430" column="16" selection-start-line="430" selection-start-column="16" selection-end-line="430" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/userstudy.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33264887">
+          <caret line="15" column="26" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="26" />
           <folding />
         </state>
       </provider>

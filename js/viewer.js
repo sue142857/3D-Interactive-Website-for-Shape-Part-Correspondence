@@ -450,6 +450,7 @@ function clearInterface() {
         }
     }
     while(i<scene.children.length);
+    render();
 }
 function addLabelBar(labelId,labelName)
 {
