@@ -508,7 +508,7 @@ function addHint(counter, total){
     }
     else if (nCompleted > nLabel-1){
         var str1 = "hint";
-        var str2 = "Please match fine parts for the shape pair " + progressText;
+        var str2 = "Please match parts for the shape pair " + progressText;
         var str3 = "<div id=" + str1 + ">" + str2 + "</div>";
         var str4 = "Double click on parts from two shapes, then double click background to match. Or select parts on only one shape, then double click to leave them unmatched.";
         var str5 = "<div id='subhint'>" + str4 + "</div>";
