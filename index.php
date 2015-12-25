@@ -56,7 +56,7 @@
 				The following video shows an example of how to do labeling/matching tasks:
 			</p>
 			<div id='instruction-video'>
-				<embed src="http://player.youku.com/player.php/sid/XMTQxNjU0Nzg1Mg==/v.swf"
+				<embed src="http://player.youku.com/player.php/sid/XMTQyMzM1NzU4NA==/v.swf"
 					   allowFullScreen="true" quality="high" width="600" height="500" align="middle"
 					   allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
 			</div>
