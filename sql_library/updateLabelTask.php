@@ -8,8 +8,8 @@
 
 include "db.php";
 
-$shape_id = $_GET['shape_id'];
-$number = $_GET['number'];
+$shape_id = $_POST['shape_id'];
+$number = $_POST['number'];
 
 $queryUpdate = "UPDATE labeltask SET number = $number WHERE shape_id = $shape_id";
 $mysqli->query($queryUpdate);

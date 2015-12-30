@@ -8,8 +8,8 @@
 
 include "db.php";
 
-$pair_id = $_GET['pair_id'];
-$number = $_GET['number'];
+$pair_id = $_POST['pair_id'];
+$number = $_POST['number'];
 
 $queryUpdate = "UPDATE matchtask SET number = $number WHERE pair_id = $pair_id";
 $mysqli->query($queryUpdate);

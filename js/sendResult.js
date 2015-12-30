@@ -14,7 +14,7 @@ var sendLabelResult = function()
             shapeId: shapeId[0],
             username: username,
         },
-        type: 'get',
+        type: 'post',
         success: function(output) {
             //alert("Save!");
             nCompleted = nCompleted +1;
@@ -35,7 +35,7 @@ var sendMatchResult = function()
             pair_id: pair_id,
             username: username,
         },
-        type: 'get',
+        type: 'post',
         success: function(output) {
             //alert("Save!");
             nCompleted = nCompleted +1;
@@ -52,7 +52,7 @@ var updateMatchTask = function(){
             number: matchTask-1,
             username: username,
         },
-        type: 'get',
+        type: 'post',
         success: function(output) {
             //alert("Changed!");
             hideLoadingScreen();
@@ -77,7 +77,7 @@ var updateLabelTask = function(){
             number: labelTask-1,
             username: username,
         },
-        type: 'get',
+        type: 'post',
         success: function(output) {
             hideLoadingScreen();
             //alert("Changed!");

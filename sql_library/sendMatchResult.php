@@ -8,9 +8,9 @@
 
 include "db.php";
 
-$matchResult = $_GET['matchResult'];
-$pair_id = $_GET['pair_id'];
-$username = $_GET['username'];
+$matchResult = $_POST['matchResult'];
+$pair_id = $_POST['pair_id'];
+$username = $_POST['username'];
 
 foreach ($matchResult as $item) {
     // Build the insert query

@@ -8,9 +8,9 @@
 
 include "db.php";
 
-$labelResult = $_GET['labelResult'];
-$shapeId = $_GET['shapeId'];
-$username = $_GET['username'];
+$labelResult = $_POST['labelResult'];
+$shapeId = $_POST['shapeId'];
+$username = $_POST['username'];
 
 
 foreach ($labelResult as $item) {
